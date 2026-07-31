@@ -1,4 +1,4 @@
-  <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
+  <nav class="bg-white items-center flex gap-3.5 mb-4 pt-2 justify-between">
       <div class="flex items-center">
         <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
         <h1 class="font-bold text-3xl">Funiro</h1>
@@ -10,7 +10,7 @@
             <a href="index.php">Home </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page9.php">Shop </a>
+            <a href="page2.php">Shop </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
             <a href="">About </a>

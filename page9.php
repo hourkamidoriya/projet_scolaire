@@ -19,7 +19,7 @@
             <a href="index.php">Home </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page7.php">Shop </a>
+            <a href="page2.php">Shop </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
             <a href="">About </a>

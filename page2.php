@@ -50,7 +50,6 @@ foreach ($list_produit as $produit) {
     $nb += 1;
 }
 
-echo "$nb" ;
 
 // je verifi si la il y'a un get page
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
@@ -198,7 +197,7 @@ $list_new_produit = $exe2->fetchAll();
 
                         <?php foreach ($list_produit as $produit) { ?>
                             
-                            <div class="   duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits ">
+                            <div class="   duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits  ">
 
                                 
                                     
@@ -206,17 +205,17 @@ $list_new_produit = $exe2->fetchAll();
                                         src="<?php echo $produit['Image']; ?>"
                                         alt=""
                                         class="w-full h-62  object-cover mb-4">
-                                <div class="px-4 pb-10">
-                                    <p class="font-bold">
+                                <div class="px-4 pb-10 overflow-y-auto h-30">
+                                    <p class="font-bold text-center">
                                         <?php echo $produit['Titre']; ?>
                                     </p>
 
-                                    <p>
+                                    <p class="">
                                         <?php echo $produit['Description']; ?>
                                     </p>
 
-                                    <p>
-                                        <?php echo $produit['Prix']; ?>
+                                    <p class="text-center">
+                                        <?php echo $produit['Prix']; ?> FCFA
                                     </p>
                                 </div>
                                     

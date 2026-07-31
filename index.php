@@ -99,7 +99,7 @@ if(isset($_GET["affiche_product"])){
         <div>
           <ol class="flex gap-15">
             <li class=" duration-500 hover:text-2xl hover:text-blue-400 "><a href="index.php" class="disable font-bold" >Home </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page7.php">Shop </a></li>
+            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page2.php">Shop </a></li>
             <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="">About </a></li>
             <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page9.php">Contact </a></li>
           </ol>
@@ -250,7 +250,7 @@ if(isset($_GET["affiche_product"])){
             </div> 
             
         </div>
-        <a href="page2.php">tous nos produit classer par categorie</a>  
+         
     </main>
 
     <script src="scrip.js"></script>
