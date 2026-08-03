@@ -21,9 +21,9 @@
             <a href="index.php">Home </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page2.php" class="disable font-bold">Shop </a>
+            <a href="page2.php" class="disable ">Shop </a>
           </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
+          <li class="duration-500 font-bold hover:text-xl hover:text-blue-400">
             <a href="">About </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
