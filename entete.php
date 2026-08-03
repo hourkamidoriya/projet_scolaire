@@ -1,4 +1,16 @@
-  <nav class="bg-white items-center flex gap-3.5 mb-4 pt-2 justify-between">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+
+        <nav class="bg-white items-center flex gap-3.5 mb-4 pt-2 justify-between">
       <div class="flex items-center">
         <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
         <h1 class="font-bold text-3xl">Funiro</h1>
@@ -20,7 +32,7 @@
           </li>
         </ol>
       </div>
-      <div class="flex gap-10 items-center">
+      <div class="flex gap-10 items-center ">
         <img src="asset/Vector (4).png" alt="" class="w-6" />
 
         <div class="flex gap-1.5 relative w-45 items-center justify-end">
@@ -74,3 +86,6 @@
         </ol>
       </div>
     </div>
+
+</body>
+</html>

@@ -93,7 +93,7 @@ foreach($simil_produit_list as $simil_produit){
         </div>
       </nav>
 
-    <div class="w-full h-20 bg-pink-200 p-4 justify-center items-center text-center flex mb-3">
+    <div class="w-full h-15  bg-pink-200 p-4 justify-center items-center text-center flex mb-7">
         <div class=" w-full   flex  h-12 gap-2.5">
             <div class="flex items-center gap-1.5">
                 <a href="">Home</a>
@@ -122,19 +122,19 @@ foreach($simil_produit_list as $simil_produit){
 <div class=" w-full justify-center items-center  mx-auto flex">
     <div class="grid grid-cols-2 container">
         <div class=" flex">
-            <div class="w-4/12  p-10 grid grid-cols-1 mx-auto">
-                <div class=" bg-pink-200 w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover"></div>
-                <div class=" bg-pink-200 w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover"></div>
-                <div class=" bg-pink-200 flex justify-center w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover"></div>
+            <div class="w-4/12  pl-10 grid grid-cols-1 mx-auto">
+                <div class=" bg-pink-200 w-20 h-20 flex justify-center text-center items-center rounded-xl "> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
+                <div class=" bg-pink-200 w-20 h-20 flex justify-center text-center items-center rounded-xl "> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
+                <div class=" bg-pink-200 flex justify-center text-center items-center rounded-xl w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
             </div>
-            <div class="w-8/12 bg-pink-200">
-                <div class="h-12/12 rounded-t-2xl p-3" >
+            <div class="w-11/12 bg-pink-200   h-98 flex justify-center rounded-2xl">
+                <div class="h-11/12  w-11/12 bg-pink-200 rounded-t-2xl p-3" >
                     
-                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-8/12 rounded-t-2xl object-cover">
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-11/12 rounded-t-2xl bg-pink-200 object-cover">
                 </div>
             </div>
         </div>
-        <div class=" ">
+        <div class=" ml-10">
 
 
           <p class="text-5xl">  <?php echo $produit_select["Titre"] ; ?> </p> 
@@ -187,7 +187,7 @@ foreach($simil_produit_list as $simil_produit){
         </div>
     </div>
 </div>
-
+<div class="w-full h-0.5 bg-gray-500 mt-8"></div>
 <div class="w-full mt-8 mb-3">
     <h2 class="font-bold  text-3xl justify-between text-center">description detailler </h2>
 </div>
@@ -215,7 +215,7 @@ foreach($simil_produit_list as $simil_produit){
                     <img
                     src="<?php echo $simil_produit['Image']; ?>"
                     alt=""
-                    class="w-full h-62  object-cover mb-4">
+                    class="w-full h-62   mb-4">
                     <div class="px-4 pb-10 overflow-y-auto h-30">
                         <p class="font-bold text-center">
                         <?php echo $simil_produit['Titre']; ?>
@@ -253,11 +253,61 @@ foreach($simil_produit_list as $simil_produit){
         <?php } ?>
     </div>
 </div>
+    <div class="w-full flex px-20 py-6 bg-white shadow-2xl">
+    <div>
+        <div style="width: 360px; text-align: left;">
+            <div style="display: flex;">
+                <div style="margin-right: 10px;">
+                    <img src="Logo.png" alt="">
+                </div>
+                <p class=" font-bold text-4xl">FUNIRO</p>
+            </div>
+            <div class="mt-9">
+                <p>400 University Drive Suite 200 Coral Gables, <br> FL 33134 USA</p>
+            </div>
+          
+        </div>
+
+
+        
+    </div>
+
+    <div style="display: flex; margin-left: 50px; margin-top: 30px;">
+        <div class="ml-9">
+            <a href="" style="text-decoration: none;"><h3 style="font-weight: bold; margin-bottom: 20px;">Link</h3></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Hom</p></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">About</p></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Contact</p></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Shop</p></a>
+        </div>
+
+        <div  class="ml-14">
+            <a href="" style="text-decoration: none;"><h3 style=" font-weight: bold; margin-bottom: 20px;">Help</h3></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Payement option</p></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">retune</p></a>
+            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Pricaty policie</p></a>
+            
+        </div>
+
+        <div class="ml-20 gap-2">
+            <a href="" style="text-decoration: none;"><h3 style="font-weight: bold; margin-bottom: 20px;">Newsletter</h3></a>
+            <div class="flex gap-4">
+                <input type="email" name="" id="" placeholder="entrer vote email" class="border-b  border-b-black outline-none bg-transparent">
+
+                <input type="submit" name="" id="" value="subcrire"  class="border-b  border-b-black outline-none bg-transparent w-32 hover:cursor-pointer hover:bg-pink-400 hover:rounded-2xl rounded-b-2xl">
+            </div>
+ 
+        </div>
+
+
+    </div>
+    
+</div>
 
 
 
 <script src="script_add_or_subs_to_cart.js"></script>
 <script src="scrip.js"></script>
-    <?php include("pied_de_page.php") ; ?>
+    
 </body>
 </html>

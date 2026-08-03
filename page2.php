@@ -197,14 +197,11 @@ $list_new_produit = $exe2->fetchAll();
 
                         <?php foreach ($list_produit as $produit) { ?>
                             
-                            <div class="   duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits  ">
-
-                                
-                                    
+                            <div class="shadow-2xl shadow-black duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits  ">
                                     <img
                                         src="<?php echo $produit['Image']; ?>"
                                         alt=""
-                                        class="w-full h-62  object-cover mb-4">
+                                        class="w-full h-62  mb-4">
                                 <div class="px-4 pb-10 overflow-y-auto h-30">
                                     <p class="font-bold text-center">
                                         <?php echo $produit['Titre']; ?>
@@ -245,8 +242,12 @@ $list_new_produit = $exe2->fetchAll();
                     </div>
 
 
-                <div class="flex justify-center gap-3.5 m-5 "> <?php for ($i=1 ;$i<=$nb_page ;$i++) {?>
-                  <a href="page2.php?page= <?php echo $i ; ?>"><p class="py-3  px-7 bg-amber-400 border-2" > <?php echo $i?></p></a>
+                <div class="flex justify-center gap-3.5 my-6 "> <?php for ($i=1 ;$i<=$nb_page ;$i++) {?>
+                    <?php if($i == $page_actuelle){ ?>
+                        <p class="py-3  px-7 rounded-xl shadow-2xl bg-gray-400 " > <?php echo $i?></p>
+                    <?php } else { ?>
+                        <a href="page2.php?page= <?php echo $i ; ?>"><p class="py-3  px-7 rounded-xl shadow-2xl bg-amber-400 " > <?php echo $i?></p></a>
+                    <?php } ?>
                   <?php }?>
                 </div>
 
