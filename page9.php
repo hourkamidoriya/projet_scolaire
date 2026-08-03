@@ -22,7 +22,7 @@
             <a href="page2.php">Shop </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="">About </a>
+            <a href="page7.php">About </a>
           </li>
           <li class="duration-500 hover:text-xl hover:text-blue-400">
             <a href="page9.php" class="disable font-bold">Contact</a>

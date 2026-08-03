@@ -21,4 +21,9 @@ include("connexion.php") ;
         $requette_add_user = "INSERT INTO `utilisateur` (`id`, `nom`, `email`, `mot_de_pass`, `tel`) VALUES (NULL, '$nom', '$email', '$pass', '$num_tel')" ;
         $execute = $con->query($requette_add_user) ;
     }
+    header("location: connexion_user.php") ;
 ?>
+
+
+
+<script src="js/script_inscription.js"></script>

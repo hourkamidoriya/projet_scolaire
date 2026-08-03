@@ -1,3 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
 include("connexion.php");
@@ -69,6 +90,38 @@ if(isset($_GET["affiche_product"])){
 }
 
 ?>
+
+
+<!-- cette partie c'est pour identifier l'utilisateur que est connecter -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!doctype html>
 <html lang="en">
@@ -242,8 +295,12 @@ if(isset($_GET["affiche_product"])){
                     Show More
                 </button>
 
-                <div class="flex justify-center"> <?php for ($i=1 ;$i<=$nb_page ;$i++) {?>
-                  <a href="./?page= <?php echo $i ; ?>"><p class="py-3 m-2  px-7 bg-amber-400 border-2" > <?php echo $i?></p></a>
+                <div class="flex justify-center gap-2.5 my-6"> <?php for ($i=1 ;$i<=$nb_page ;$i++) {?>
+                <?php if($i == $page_actuelle){ ?>
+                    <p class="py-3  px-7 rounded-xl shadow-2xl bg-gray-400" > <?php echo $i?></p>
+                <?php } else { ?> 
+                  <a href="./?page= <?php echo $i ; ?>"><p class="py-3  px-7 rounded-xl shadow-2xl bg-amber-400" > <?php echo $i?></p></a>
+                  <?php }?>
                   <?php }?>
                 </div>
 

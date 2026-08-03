@@ -1,6 +1,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
 include("connexion.php");
@@ -83,7 +100,7 @@ if(isset($_GET['categorie'])){
     $categorie = $_GET["categorie"];
     if ($categorie == "jeux"){
 $requette = "SELECT * FROM `produit` WHERE Id_categori = 2 LIMIT " . $premier . "," . $nb_by_page ;  
-echo $categorie ; }
+ }
 // else {
 //     $requette = "SELECT * FROM produit LIMIT " . $premier . "," . $nb_by_page;
 // }
@@ -150,12 +167,12 @@ $list_new_produit = $exe2->fetchAll();
 </head>
 <body class="bg-gray-100">
     <?php include("entete.php")?>
-    
+    <input type="file" value="cliquer et choisiser une image">
 
     <div class="w-full h-14 bg-pink-200 grid grid-cols-2 items-center ">
         <div class="flex my-auto  h-14 justify-center">
             <div class="flex items-center gap-3">
-                <div class="border p-2  flex ">
+                <div class=" p-2  flex ">
                     <form action="" method="get" class="flex">
                         <select name="categorie" id="">
                             <option value="all_product"> tous nos produit </option>
@@ -267,7 +284,10 @@ $list_new_produit = $exe2->fetchAll();
 
 
 
+<div class="bg-gray-700 h-36 w-4/12">
+    
 
+</div>
 
 
 

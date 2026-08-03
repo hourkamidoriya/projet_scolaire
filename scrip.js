@@ -21,14 +21,5 @@ produits.forEach((element) => {
 //     });
 
 // });
-const password = document.querySelectorAll("v.pass");
-const password_verif = document.querySelectorAll("#pass");
-const button = document.querySelectorAll("#sub_registe");
-button.addEventListener("click",function(){
-    if(password != password_verif){
-        const verif = document.querySelectorAll(".connexion_echouer");
-        verif.style.display = "block" ;
 
-    }
-
-})
+// partie connexion de l'utilisateur

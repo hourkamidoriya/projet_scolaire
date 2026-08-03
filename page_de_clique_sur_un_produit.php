@@ -101,7 +101,7 @@ foreach($simil_produit_list as $simil_produit){
                 
             </div>
             <div class="flex items-center gap-1.5">
-                <a href="">Home</a>
+                <a href="">Shop</a>
                 <img src="asset/icon_left.png" alt="xxx" class="w-5 mt-1">
                 
             </div>
@@ -128,7 +128,7 @@ foreach($simil_produit_list as $simil_produit){
                 <div class=" bg-pink-200 flex justify-center text-center items-center rounded-xl w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
             </div>
             <div class="w-11/12 bg-pink-200   h-98 flex justify-center rounded-2xl">
-                <div class="h-11/12  w-11/12 bg-pink-200 rounded-t-2xl p-3" >
+                <div class="h-11/12  w-11/12 bg-pink-600 rounded-t-2xl p-3 " >
                     
                     <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-11/12 rounded-t-2xl bg-pink-200 object-cover">
                 </div>
