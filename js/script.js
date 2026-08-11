@@ -50,5 +50,6 @@ const visuel_panier =document.querySelector("#visuel_panier") ;
 
 visuel_panier.addEventListener("mouseout",function (){
     this.classList.add("hidden") ;
-    
+    mhassa2.classList.add("flex") ;
+    mhassa2.classList.add("hidden") ;
 }) ;
