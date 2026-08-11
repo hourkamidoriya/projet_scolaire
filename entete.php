@@ -60,8 +60,8 @@
 <!-- je vais code le panier  -->
 
 
-<div class=" w-full  absolute z-10 h-full hidden voila2 duration-700 justify-end "  >
-  <div class="w-3/12 p-5 bg-pink-200  justify-end   h-full  flex">
+<div class=" w-full  absolute z-10 h-full hidden voila2  bg-pink-200 duration-700 justify-end "  >
+  <div class="w-3/12 p-5  justify-end bg-black  h-full  flex" id="visuel_panier">
     <p>hello</p>
   </div>
 </div>
@@ -185,4 +185,4 @@
       </div>
     </div>
 <?php }?>  
-<script src="js/script2.js"></script>
+<script src="js/script.js"></script>

@@ -45,10 +45,10 @@ deiv_cacher2.addEventListener("click",function (){
     mhassa.classList.add("hidden") ;
 }) ;
 
+const visuel_panier =document.querySelector("#visuel_panier") ;
 
 
-deiv_cacher2.addEventListener("mouseout",function (){
-    mhassa2.classList.toggle("hidden") ;
-    mhassa2.classList.add("flex") 
-    mhassa.classList.add("hidden") ;
+visuel_panier.addEventListener("mouseout",function (){
+    this.classList.add("hidden") ;
+    
 }) ;
