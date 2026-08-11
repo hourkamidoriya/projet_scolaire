@@ -1,38 +1,15 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-
+session_start();
 include("connexion.php");
 
 // fause requette pour conmpter
 $nb = 0;
-
-
-
 $categorie ="all_product";
 
 // la fausse requtte pour compter le nombre de produit par categori
 
-if(isset($_GET['categorie'])){
-    $categorie = $_GET["categorie"];
+if(isset($_POST['categorie'])){
+    $categorie = $_POST["categorie"];
 
     if($categorie=="meuble"){
         $requette="SELECT * FROM `produit` WHERE Id_categori = 1" ;
@@ -68,10 +45,10 @@ foreach ($list_produit as $produit) {
 }
 
 
-// je verifi si la il y'a un get page
-if (isset($_GET["page"]) && !empty($_GET["page"])) {
+// je verifi si la il y'a un POST page
+if (isset($_POST["page"]) && !empty($_POST["page"])) {
 
-    $page_actuelle = $_GET["page"];
+    $page_actuelle = $_POST["page"];
 
 } else {
 
@@ -96,8 +73,8 @@ $premier = ($page_actuelle * $nb_by_page) - $nb_by_page;
 $categorie ="all_product";
 
 // la vrais requette maintenant avec les limite
-if(isset($_GET['categorie'])){
-    $categorie = $_GET["categorie"];
+if(isset($_POST['categorie'])){
+    $categorie = $_POST["categorie"];
     if ($categorie == "jeux"){
 $requette = "SELECT * FROM `produit` WHERE Id_categori = 2 LIMIT " . $premier . "," . $nb_by_page ;  
  }
@@ -156,24 +133,16 @@ $list_new_produit = $exe2->fetchAll();
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/output.css">
-    
-</head>
-<body class="bg-gray-100">
+<?php $title="Shop"?>
+<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?>
     <?php include("entete.php")?>
-    <input type="file" value="cliquer et choisiser une image">
+    <!-- <input type="file" value="cliquer et choisiser une image"> -->
 
     <div class="w-full h-14 bg-pink-200 grid grid-cols-2 items-center ">
         <div class="flex my-auto  h-14 justify-center">
             <div class="flex items-center gap-3">
                 <div class=" p-2  flex ">
-                    <form action="" method="get" class="flex">
+                    <form action="" method="POST" class="flex">
                         <select name="categorie" id="">
                             <option value="all_product"> tous nos produit </option>
                             <option value="electronic">electronic</option>
@@ -235,7 +204,7 @@ $list_new_produit = $exe2->fetchAll();
                                     
                                     
                                     <div class="hidden  contenaire_product text-center   absolute w-full h-full top-0 mx-auto right-0">
-                                        <form action="page_de_clique_sur_un_produit.php" method="get">
+                                        <form action="page_de_clique_sur_un_produit.php" method="POST">
                                             <button class="py-3 p-5 absolute  font-bold  z-10 mt-34 -ml-24 w-8/12 bg-white text-amber-600 " id="add_cart">Add to cart</button>
                                             <input type="text" value="<?php echo $produit['Id']; ?>" class="hidden" name="affiche_produit">                             
                                         </form>    
@@ -310,6 +279,12 @@ $list_new_produit = $exe2->fetchAll();
 
 <?php include("pied_de_page.php")?>
 <script src="scrip.js"></script>
+
+<?php }else{ ?> 
+    
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>
 
 </body>
 </html>

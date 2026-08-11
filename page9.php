@@ -1,81 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/output.css">
-</head>
-<body>
-        <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
-      <div class="flex items-center">
-        <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
-        <h1 class="font-bold text-3xl">Funiro</h1>
-      </div>
-
-      <div>
-        <ol class="flex gap-10">
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="index.php">Home </a>
-          </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page2.php">Shop </a>
-          </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page7.php">About </a>
-          </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page9.php" class="disable font-bold">Contact</a>
-          </li>
-        </ol>
-      </div>
-      <div class="flex gap-10 w">
-        <img src="asset/Vector (4).png" alt="" class="w-5" />
-        <img src="asset/Vector (3).png" alt="" class="w-5" />
-        <img src="asset/Vector (2).png" alt="" class="w-5" />
-        <img src="asset/Vector (5).png" alt="" class="w-5 mr-10" />
-      </div>
-    </nav>
-
-    <div
-      class="relative flex mx-auto justify-center text-center min-h-auto items-center"
-    >
-      <div class="w-full h-80">
-        <img src="asset/baniere.png" alt="" />
-      </div>
-
-      <div class="absolute justify-center text-center">
-        <img src="asset/logo.png" alt="" class="w-14 mx-auto" />
-        <ol>
-          <div>
-            <li>
-              <h1 class="text-5xl text-black font-bold">Checkout <br /></h1>
-            </li>
-          </div>
-
-          <div class="flex mt-3 justify-center items-center">
-            <li class="flex" >
-              <a
-                href=""
-                class="text-1xl duration-500  hover:text-blue-400 hover:text-2xl"
-                >Hom </a
-              >
-             <img src="asset/dashicons_arrow-down-alt2.png" alt="" class="w-4 mt-1" > 
-            </li>
-            <li>
-              <a
-                href=""
-                class="text-1xl duration-500 hover:text-blue-400 hover:text-2xl"
-                >Contact</a
-              >
-            </li>
-          </div>
-        </ol>
-      </div>
-    </div>
-
-
-
+<?php
+session_start();
+$title="Contact"?>
+<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
+<?php include("entete.php")?>
 
 <div  class="flex">
     <div class="w-1/2 pl-40 pr-30">
@@ -139,7 +66,11 @@
         </form>
     </div>
 </div>
-
+<?php }else{ ?> 
+    
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>
 
 
 

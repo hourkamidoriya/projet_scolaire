@@ -7,7 +7,7 @@ $DB_pass="" ;
 $dsn="mysql:host=$DB_host;dbname=$DB_name" ;
 try{
     $con=new PDO($dsn,$DB_user,$DB_pass) ;
-    }catch(PDOExecption $e){ 
+    }catch(PDOException $e){ 
         die("il y'a une erreur ".$e) ;
 }
 

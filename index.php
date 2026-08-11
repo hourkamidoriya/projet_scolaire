@@ -1,26 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-
+session_start() ;
 include("connexion.php");
 
 // fause requette pour conmpter
@@ -36,10 +15,10 @@ foreach ($list_produit as $produit) {
 }
 
 
-// je verifi si la il y'a un get page
-if (isset($_GET["page"]) && !empty($_GET["page"])) {
+// je verifi si la il y'a un POST page
+if (isset($_POST["page"]) && !empty($_POST["page"])) {
 
-    $page_actuelle = $_GET["page"];
+    $page_actuelle = $_POST["page"];
 
 } else {
 
@@ -85,7 +64,7 @@ $list_new_produit = $exe2->fetchAll();
 
 // ça c'est pour afficher un produit en particulier sur ca page puis afficher quelque produit de sa categorie
 
-if(isset($_GET["affiche_product"])){
+if(isset($_POST["affiche_product"])){
     
 }
 
@@ -133,7 +112,7 @@ if(isset($_GET["affiche_product"])){
 
     <link rel="stylesheet" href="css/output.css">
 </head>
-
+<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
 <body>
 
     <div>
@@ -246,7 +225,7 @@ if(isset($_GET["affiche_product"])){
 
                             <div class="   duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits ">
 
-                                <form action="page_de_clique_sur_un_produit.php" method="get" id="affiche_product">
+                                <form action="page_de_clique_sur_un_produit.php" method="POST" id="affiche_product">
                                     
                                     <img
                                         src="<?php echo $produit['Image']; ?>"
@@ -313,5 +292,10 @@ if(isset($_GET["affiche_product"])){
     <script src="scrip.js"></script>
 
 </body>
+<?php }else{ ?> 
+    
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>
 
 </html>

@@ -1,7 +1,8 @@
 <?php
+session_start();
 include("connexion.php") ;
-if(($_GET["search"]) && !(empty($_GET["search"]))){
-    $recherhe=$_GET["search"] ;
+if(($_POST["search"]) && !(empty($_POST["search"]))){
+    $recherhe=$_POST["search"] ;
     $resuette_search="SELECT * FROM `produit`" ;
     $exe_requette_search =($con-> query($resuette_search)) ;
     $list_produit_search=$exe_requette_search->fetchAll() ;
@@ -48,8 +49,9 @@ $produit_trouver =0;
     <link rel="stylesheet" href="css/output.css">
 </head>
 <body>
-<div>   
-    
+<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
+
+<div>    
 </div>
 
 
@@ -141,6 +143,10 @@ $produit_trouver =0;
         include("pied_de_page.php")
     ?>
 </div>
+<?php }else{ ?> 
     
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>  
 </body>
 </html>

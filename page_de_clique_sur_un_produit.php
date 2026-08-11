@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 
 include("connexion.php") ; 
 
 
 
-if(isset($_GET["affiche_produit"])){
-    $produit_cliked=$_GET["affiche_produit"] ;
+if(isset($_POST["affiche_produit"])){
+    $produit_cliked=$_POST["affiche_produit"] ;
 
     $requette="SELECT * FROM `produit` WHERE `Id`=".$produit_cliked ;
 
@@ -69,6 +69,7 @@ foreach($simil_produit_list as $simil_produit){
     <title>Document</title>
     <link rel="stylesheet" href="css/output.css">
 </head>
+<?php if(isset($_SESSION["utilisateur"])){ ?>  
 <body>
 
     <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
@@ -231,7 +232,7 @@ foreach($simil_produit_list as $simil_produit){
                     </div>  
     <div class="hidden  contenaire_product text-center   absolute w-full h-full top-0 mx-auto right-0">
 
-        <form action="" method="get">
+        <form action="" method="POST">
             <button class="py-3 p-5 absolute  font-bold  z-10 mt-34 -ml-24 w-8/12 bg-white text-amber-600 " id="add_cart">Add to cart</button>
             <input type="text" value="<?php echo $simil_produit['Id']; ?>" class="hidden" name="affiche_produit">                             
         </form>    
@@ -310,4 +311,10 @@ foreach($simil_produit_list as $simil_produit){
 <script src="scrip.js"></script>
     
 </body>
+
+<?php }else{ ?> 
+    
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>
 </html>

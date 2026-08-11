@@ -1,82 +1,9 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Checkout</title>
-    <link rel="stylesheet" href="css/output.css">
-  </head>
-  <body class="bg-white">
-    <!--- mon enête  -->
-    <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
-      <div class="flex items-center">
-        <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
-        <h1 class="font-bold text-3xl">Funiro</h1>
-      </div>
+<?php
+session_start();
+$title="Checkout"?>
 
-      <div>
-        <ol class="flex gap-10">
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="index.php">Home </a>
-          </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page2.php" class="disable ">Shop </a>
-          </li>
-          <li class="duration-500 font-bold hover:text-xl hover:text-blue-400">
-            <a href="">About </a>
-          </li>
-          <li class="duration-500 hover:text-xl hover:text-blue-400">
-            <a href="page9.php">Contact </a>
-          </li>
-        </ol>
-      </div>
-      <div class="flex gap-10 w">
-        <img src="asset/Vector (4).png" alt="" class="w-5" />
-        <img src="asset/Vector (3).png" alt="" class="w-5" />
-        <img src="asset/Vector (2).png" alt="" class="w-5" />
-        <img src="asset/Vector (5).png" alt="" class="w-5 mr-10" />
-      </div>
-    </nav>
-
-    <div
-      class="relative flex mx-auto justify-center text-center min-h-auto items-center"
-    >
-      <div class="w-full h-80">
-        <img src="asset/baniere.png" alt="" />
-      </div>
-
-      <div class="absolute justify-center text-center">
-        <img src="asset/logo.png" alt="" class="w-14 mx-auto" />
-        <ol>
-          <div>
-            <li>
-              <h1 class="text-5xl text-black font-bold">Checkout <br /></h1>
-            </li>
-          </div>
-
-          <div class="flex mt-3 justify-center items-center">
-            <li class="items-center">
-              <a
-                href=""
-                class="text-1xl duration-500 hover:text-blue-400 hover:text-2xl"
-                >Hom</a
-              >
-             <span class="font-bold text-xl"> ></span>
-            </li>
-            <li>
-              <a
-                href=""
-                class="text-1xl duration-500 hover:text-blue-400 hover:text-2xl"
-                >Checkout</a
-              >
-            </li>
-          </div>
-        </ol>
-      </div>
-    </div>
-
-<!--- fin de mon enête  -->
+<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
+<?php include("entete.php")?>
 
 
 <section class="max-w-7xl mx-auto py-16 px-6">
@@ -263,15 +190,11 @@
     include("pied_de_page.php")
   ?>
 </div>
+</body>
 
-
-
-
-
-
-
-
-
-
-  </body>
+<?php }else{ ?> 
+    
+ <?php   header("location:connexion_user.php")  ;?>
+     
+<?php } ;?>
 </html>
