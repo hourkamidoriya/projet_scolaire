@@ -105,13 +105,12 @@ if(isset($_POST["affiche_product"])){
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formulaire</title>
 
-    <link rel="stylesheet" href="css/output.css">
-</head>
+<?php 
+$title="Home" ;
+$banner="none" ;
+include ("entete.php")
+?> 
 <?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
 <body>
 
@@ -122,27 +121,7 @@ if(isset($_POST["affiche_product"])){
 
     <main class="h-screen w-full">
 
-    <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
-        <div class="flex items-center">
-          <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
-          <h1 class="font-bold text-3xl">Funiro</h1>
-        </div>
-
-        <div>
-          <ol class="flex gap-15">
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400 "><a href="index.php" class="disable font-bold" >Home </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page2.php">Shop </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="">About </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page9.php">Contact </a></li>
-          </ol>
-        </div>
-        <div class="flex gap-10 w">
-          <img src="asset/Vector (4).png" alt="" class="w-5" />
-          <img src="asset/Vector (3).png" alt="" class="w-5" />
-          <img src="asset/Vector (2).png" alt="" class="w-5" />
-          <img src="asset/Vector (5).png" alt="" class="w-5 mr-10" />
-        </div>
-      </nav>
+    
               <img
           src="asset/baner.png"
           alt=""

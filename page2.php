@@ -133,7 +133,9 @@ $list_new_produit = $exe2->fetchAll();
 
 
 
-<?php $title="Shop"?>
+<?php
+$banner="yes" ;
+$title="Shop"?>
 <?php if(isset($_SESSION["utilisateur"])=="bb"){ ?>
     <?php include("entete.php")?>
     <!-- <input type="file" value="cliquer et choisiser une image"> -->

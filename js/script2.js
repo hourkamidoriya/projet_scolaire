@@ -25,6 +25,8 @@ const mhassa = document.querySelector(".voila") ;
 
 deiv_cacher.addEventListener("click",function (){
     mhassa.classList.toggle("hidden") ;
+    mhassa2.classList.add("hidden") ;
+    
 }) ;
 
 
@@ -39,5 +41,14 @@ console.log(mhassa2) ;
 
 deiv_cacher2.addEventListener("click",function (){
     mhassa2.classList.toggle("hidden") ;
-    mhassa2.classList.toggle("flex") 
+    mhassa2.classList.add("flex") 
+    mhassa.classList.add("hidden") ;
+}) ;
+
+
+
+deiv_cacher2.addEventListener("mouseout",function (){
+    mhassa2.classList.toggle("hidden") ;
+    mhassa2.classList.add("flex") 
+    mhassa.classList.add("hidden") ;
 }) ;

@@ -1,7 +1,9 @@
 <?php
 session_start();
 $title="Contact"?>
-<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
+<?php
+$banner="yes" ;
+if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
 <?php include("entete.php")?>
 
 <div  class="flex">

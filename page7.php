@@ -2,7 +2,9 @@
 session_start();
 $title="Checkout"?>
 
-<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
+<?php
+$banner="yes" ;
+if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
 <?php include("entete.php")?>
 
 

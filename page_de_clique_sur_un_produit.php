@@ -22,6 +22,7 @@ $mon_produit=$exe->fetchAll();
 foreach($mon_produit as $produit_select){
     // echo $produit_select["Id_categori"] ;
     $id_produit = $produit_select["Id_categori"] ;
+    $produit_select["Titre"] ;
 }
 // ici je vais chercher comment afficher les prosuit de la mm categori
 $requette2="SELECT * FROM `produit` WHERE `Id_categori`=".$id_produit . " LIMIT "."0".","."4" ;
@@ -61,38 +62,12 @@ foreach($simil_produit_list as $simil_produit){
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/output.css">
-</head>
+
+<?php 
+$title=$produit_select["Titre"] ;
+$banner="non" ;
+include("entete.php") ?>  
 <?php if(isset($_SESSION["utilisateur"])){ ?>  
-<body>
-
-    <nav class="bg-white items-center flex gap-3.5 mb-4 mt-4 justify-between">
-        <div class="flex items-center">
-          <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
-          <h1 class="font-bold text-3xl">Funiro</h1>
-        </div>
-
-        <div>
-          <ol class="flex gap-15">
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400 "><a href="index.php" class="disable font-bold" >Home </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page2.php">Shop </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="">About </a></li>
-            <li class=" duration-500 hover:text-2xl hover:text-blue-400"><a href="page9.php">Contact </a></li>
-          </ol>
-        </div>
-        <div class="flex gap-10 w">
-          <img src="asset/Vector (4).png" alt="" class="w-5" />
-          <img src="asset/Vector (3).png" alt="" class="w-5" />
-          <img src="asset/Vector (2).png" alt="" class="w-5" />
-          <img src="asset/Vector (5).png" alt="" class="w-5 mr-10" />
-        </div>
-      </nav>
 
     <div class="w-full h-15  bg-pink-200 p-4 justify-center items-center text-center flex mb-7">
         <div class=" w-full   flex  h-12 gap-2.5">

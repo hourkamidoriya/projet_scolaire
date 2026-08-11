@@ -1,4 +1,5 @@
 <?php  
+$banner="yes" ;
 $title="enregistrement" ;
 include("entete.php") ;
 

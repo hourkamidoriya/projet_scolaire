@@ -60,8 +60,8 @@
 <!-- je vais code le panier  -->
 
 
-<div class=" w-full  absolute z-10 h-screm hidden voila2 duration-700 mt-10 justify-end "  >
-  <div class="w-3/12 p-5 bg-pink-400  justify-end  mt-10 h-full  flex">
+<div class=" w-full  absolute z-10 h-full hidden voila2 duration-700 justify-end "  >
+  <div class="w-3/12 p-5 bg-pink-200  justify-end   h-full  flex">
     <p>hello</p>
   </div>
 </div>
@@ -129,6 +129,7 @@
           </li>
         </ol>
       </div>
+
       <div class="flex gap-10 items-center ">
         <img src="asset/Vector (4).png" alt="" class="w-6 cursor-pointer" id="moi" />
 
@@ -145,8 +146,8 @@
         <img src="asset/Vector (2).png" alt="" class="w-5" />
         <img src="asset/Vector (5).png" id="hh" alt="" class="w-5 mr-10 cursor-pointer "/>
       </div>
-    </nav>
-
+  </nav>
+<?php if($banner=="yes"){ ?>  
     <div
       class="relative flex mx-auto justify-center text-center min-h-auto items-center"
     >
@@ -183,4 +184,5 @@
         </ol>
       </div>
     </div>
+<?php }?>  
 <script src="js/script2.js"></script>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$banner="yes" ;
  include("connexion.php") ;
 
 // je cparcoure les utilisateur
