@@ -1,3 +1,54 @@
+<?php
+if (isset($_SESSION["utilisateur"])){
+
+
+
+
+include("connexion.php") ;
+$id = $_SESSION["utilisateur"] ;
+$nom = $_SESSION["user_name"] ;
+
+// ici je vais gérer le panier 
+$requette_panier = "SELECT * FROM `panier_produits` WHERE `utilisateur_panier` = ".$id ;
+$requette_panier_exe = $con->query($requette_panier) ;
+$produits_panier =$requette_panier_exe->fetchAll() ;
+// echo "<pre>" ;
+// var_dump($produits_panier) ;
+// echo "<pre>";
+foreach ($produits_panier as $produit_panier){
+// echo "<pre>" ;
+// var_dump($produit_panier) ;
+// echo "<pre>";
+  $requette_produits = "SELECT * FROM `produit` WHERE `Id` = ".$produit_panier['produit_id'] ;
+  $requette_produits_exe = $con->query($requette_produits) ;
+  $tous_les_produit = $requette_produits_exe->fetchAll() ;
+  // echo "<pre>" ;
+  // var_dump($tous_les_produit) ;
+  // echo "<pre>" ;
+
+}
+
+}
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -60,17 +111,97 @@
 <!-- je vais code le panier  -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class=" w-full  absolute z-10 h-full hidden voila2   rounded-xl  duration-700 justify-end "  >
-<div class="w-3/12 p-5  z-10 justify-center bg-gray-200  h-full text-center items-center" id="visuel_panier">
+<div class="w-3/12 p-5  z-10 justify-center bg-white  h-full text-center items-center" id="visuel_panier">
     <h2 class="text-2xl  font-bold">Shopping Cart</h2>
-    <div class="mt-10 bg-pink-400 h-0.5 w-full">
-      
-    </div>
+    <div class="mt-10 bg-gray-200 h-0.5 w-full"></div>
     
-    <div class="w-full mt-5 bg-amber-400 h-32 flex" >
-      <div class=" mt-5 bg-amber-300 h-32 flex "></div>
-    </div>
-  </div>
+
+<div class=" overflow-y-auto h-111" style="height: 444px ;">
+<?php
+$prix=0 ;
+ if(!empty($produit_panier)) {
+foreach ($produits_panier as $produit_panier){
+  // echo $produit_panier["produit_id"] ;
+  // echo "<br>" ;
+   
+ 
+  $requette_produits = "SELECT * FROM `produit` WHERE `Id` = ".$produit_panier['produit_id'] ;
+  $requette_produits_exe = $con->query($requette_produits) ;
+  $tous_les_produit = $requette_produits_exe->fetchAll() ;
+  foreach ($tous_les_produit as $un_produit){   ?>
+<form action="page_de_clique_sur_un_produit.php" method="POST">
+  <div class="w-full mt-5 bg-white h-32 flex border rounded-xl items-center text-center cursor-pointer hover:-translate-y-3.5 duration-700  " >
+      <div class=" bg-white h-11/12 w-4/10 flex ml-2  ">
+        <button class="w-full h-full rounded-2xl bg-pink-300">
+          <img src=" <?php echo $un_produit['Image']?> " alt="" class=" object-fill h-full  w-full rounded-2xl bg-pink-300">
+        </button>
+        <input type="text" value="<?php echo $un_produit['Id']; ?>" class="hidden" name="affiche_produit">  
+      </div>                           
+</form> 
+      
+  <div class=" bg-white h-11/12 w-6/12  ml-2  justify-center  ">
+        <div class="mt-3.5"> <h2 class="font-bold"><?php echo $un_produit['Titre']?></h2> </div>
+        <div class="mt-3.5 flex justify-between mx-2.5" > <h2 class="">   <?php echo $produit_panier['quantiter']?> X <?php echo $un_produit['Prix']?></h2>
+
+        <form action="delete.php" class="flex" method="POST" >
+          <input type="hidden" name="product_del" value="<?php echo $un_produit['Id']?>">
+          <button class="flex w-7 h-7 cursor-pointer">
+              <img src="asset/crois.png" alt="" class="w-6 h-6 hover:w-7 hover:h-7" title="suprimer du panier">
+          </button>
+          
+        </form>
+
+        </div>
+      </div>
+  </div> 
+  <?php $prix=(int)$prix+((int)$un_produit['Prix'] * (int)$produit_panier['quantiter']) ;?>
+
+  
+<?php }?>
+
+<?php }?>
+<?php }else{
+  echo" <p>aucun produit dans  votre </p>" ;
+}?>
+</div>
+
+
+ <div class="mt-3.5"> <h2 class="font-bold"> le prix total est   <?php echo $prix?></h2>
+
+</div>
+
+ <div class="mt-3.5 flex w-full">
+  <form action="" class="w-6/12 ">
+    <button class="text-white z-10  hover:cursor-pointer bg-amber-500 border rounded-xl p-3  w-11/12">Cart</button>
+  </form>  
+  <form action="" class="w-6/12">
+    <button class="text-white z-10  hover:cursor-pointer bg-amber-500 border rounded-xl p-3  w-11/12 ">Chekout</button>
+  </form>
+</div>
+
+
+
+
+
+
+</div>
 </div>
 
 

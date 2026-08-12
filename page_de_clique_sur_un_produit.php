@@ -126,14 +126,18 @@ include("entete.php") ?>
             <p> <?php echo $produit_select["Description"] ; ?> CFA </p> 
           </div>
           <div class="flex mb-2.5 justify-between mt-6">
-            <div class="w-32 h-14 py-2 px-3 ml-4 mr-4 flex justify-between border-gray-500  items-center border rounded-2xl ">
-                <button class="text-2xl  cursor-pointer" id="moins">-</button>
-                <p id="valeur">1</p>
-                <button class=" text-2xl  cursor-pointer" id="plus" >+</button>
-            </div>
-            <div class="w-46 h-14 py-2 px-3  ml-4 mr-4 flex justify-center border-gray-500  items-center border rounded-2xl  hover:bg-gray-700 hover:text-white">
-                <p>Add to cart</p>
-            </div>
+            <form action="ajouter_produit.php" class="flex" method="POST">
+                <div class="w-32 h-14 py-2 px-3 ml-4 mr-4 flex justify-between border-gray-500  items-center border rounded-2xl ">
+                    <button type="button" class="text-2xl  cursor-pointer" id="moins">-</button>
+                    <p id="valeur">1</p>
+                    <button type="button" class=" text-2xl  cursor-pointer" id="plus" >+</button>
+                </div>
+                <div class="w-46 h-14 py-2 px-3  ml-4 mr-4 flex justify-center border-gray-500  items-center border rounded-2xl  hover:bg-gray-700 hover:text-white">
+                    <button>Add to cart</button>
+                    <input type="hidden" name="quantiter_produit" class="input_ho" value="1">
+                    <input type="hidden" name="ajout_produit" value=<?php echo $produit_select["Id"] ; ?>>
+                </div>
+            </form>
             <div class="w-46 h-14 py-2 px-3 bg-amber-100 ml-4 mr-4 flex justify-center border-gray-500  text-center items-center  border rounded-2xl ">
                 <p class="" >+ Commapre</p>
             </div>
