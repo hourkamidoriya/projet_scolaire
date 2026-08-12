@@ -31,7 +31,7 @@ deiv_cacher.addEventListener("click",function (){
 
 
 // pour le bouton du panier 
-
+const visuel_panier =document.querySelector("#visuel_panier") ;
 
 const deiv_cacher2 = document.querySelector("#hh") ;
 console.log() ;
@@ -40,16 +40,20 @@ console.log(mhassa2) ;
 
 
 deiv_cacher2.addEventListener("click",function (){
-    mhassa2.classList.toggle("hidden") ;
-    mhassa2.classList.add("flex") 
-    mhassa.classList.add("hidden") ;
+    mhassa2.classList.remove("hidden") ;
+    mhassa2.classList.add("flex") ;
+    visuel_panier.classList.remove("hidden") ;
+    mhassa.classList.add("hidden")
+    
 }) ;
 
-const visuel_panier =document.querySelector("#visuel_panier") ;
 
 
-visuel_panier.addEventListener("mouseout",function (){
+
+visuel_panier.addEventListener("mouseleave",function (){
     this.classList.add("hidden") ;
-    mhassa2.classList.toggle("flex") ;
-    mhassa2.classList.add("hidden") ;
+    mhassa2.classList.add("hidden")
 }) ;
+
+
+console.log("mlkjhgcfgjxxdddxvklfffmù")

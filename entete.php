@@ -60,9 +60,16 @@
 <!-- je vais code le panier  -->
 
 
-<div class=" w-full  absolute z-10 h-full hidden voila2   duration-700 justify-end "  >
-  <div class="w-3/12 p-5  justify-end bg-black  h-full  flex" id="visuel_panier">
-    <p>hello</p>
+<div class=" w-full  absolute z-10 h-full hidden voila2   rounded-xl  duration-700 justify-end "  >
+<div class="w-3/12 p-5  z-10 justify-center bg-gray-200  h-full text-center items-center" id="visuel_panier">
+    <h2 class="text-2xl  font-bold">Shopping Cart</h2>
+    <div class="mt-10 bg-pink-400 h-0.5 w-full">
+      
+    </div>
+    
+    <div class="w-full mt-5 bg-amber-400 h-32 flex" >
+      <div class=" mt-5 bg-amber-300 h-32 flex "></div>
+    </div>
   </div>
 </div>
 
