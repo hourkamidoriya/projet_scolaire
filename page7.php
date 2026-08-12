@@ -126,27 +126,63 @@ if(isset($_SESSION["utilisateur"])=="bb"){ ?>
           <div class="flex justify-between border-b pb-5">
             <div>
               <h3 class="font-semibold text-xl">Product</h3>
+<!-- la partie des prix  -->
 
               <div class="mt-5 space-y-4">
-                <p>Asgaard sofa × 1</p>
 
-                <p>Subtotal</p>
+<?php    foreach ($produits_panier as $produit_panier){
+  // echo $produit_panier["produit_id"] ;
+  // echo "<br>" ;
+   
+ 
+  $requette_produits = "SELECT * FROM `produit` WHERE `Id` = ".$produit_panier['produit_id'] ;
+  $requette_produits_exe = $con->query($requette_produits) ;
+  $tous_les_produit = $requette_produits_exe->fetchAll() ;
+  foreach ($tous_les_produit as $un_produit){   ?>
+                <p class="text-gray-500 font-bold "> <?php echo $un_produit["Titre"] . "    X ".$produit_panier['quantiter'] ?></p>
+<?php }?>
+
+<?php }?>
+                
 
                 <p class="font-semibold text-black">Total</p>
               </div>
             </div>
+<!-- la partie des prix  -->
+
 
             <div class="text-right">
               <h3 class="font-semibold text-xl">Subtotal</h3>
 
               <div class="mt-5 space-y-4">
-                <p>Rs.250000.00</p>
+<?php    foreach ($produits_panier as $produit_panier){
+  // echo $produit_panier["produit_id"] ;
+  // echo "<br>" ;
+   
+ 
+  $requette_produits = "SELECT * FROM `produit` WHERE `Id` = ".$produit_panier['produit_id'] ;
+  $requette_produits_exe = $con->query($requette_produits) ;
+  $tous_les_produit = $requette_produits_exe->fetchAll() ;
+  foreach ($tous_les_produit as $un_produit){   ?>
+                <p> <?php echo ($un_produit["Prix"] * $produit_panier['quantiter']) ?></p>
+<?php }?>
 
-                <p>Rs.250000.00</p>
+<?php }?>
 
-                <p class="text-2xl font-bold text-yellow-700">Rs. 250,000.00</p>
+
+                
+
+                <p class="text-2xl font-bold text-yellow-700"><?php echo  $prix ?></p>
               </div>
             </div>
+
+
+
+
+
+
+
+
           </div>
 
           <div class="mt-8 space-y-5">

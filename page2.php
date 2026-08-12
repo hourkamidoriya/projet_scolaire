@@ -189,7 +189,7 @@ $title="Shop"?>
                                     <img
                                         src="<?php echo $produit['Image']; ?>"
                                         alt=""
-                                        class="w-full h-62  mb-4">
+                                        class="w-full h-62  mb-4 object-">
                                 <div class="px-4 pb-10 overflow-y-auto h-30">
                                     <p class="font-bold text-center">
                                         <?php echo $produit['Titre']; ?>
@@ -255,10 +255,6 @@ $title="Shop"?>
 
 
 
-<div class="bg-gray-700 h-36 w-4/12">
-    
-
-</div>
 
 
 

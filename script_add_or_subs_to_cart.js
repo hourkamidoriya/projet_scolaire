@@ -1,7 +1,9 @@
 const moins = document.querySelector("#moins");
 const plus = document.querySelector("#plus");
-const valeur = document.querySelector("#valeur").innerText  ;
-const quantiter = document.querySelector("#quantiter") ;
+let valeur = document.querySelector("#valeur").innerText  ;
+let quantiter = document.querySelector("#quantiter").value ;
+console.log(quantiter) ;
+
 console.log(moins)
 console.log(valeur)
 console.log(plus)
@@ -13,30 +15,43 @@ console.log(id_product);
 
 id_product_int = parseInt(id_product) ;
 console.log(id_product_int) ;
+
+let valeurpars = parseInt(valeur) ;
+let quantiter_pars =parseInt(quantiter) ;
 plus.addEventListener("click",function(){
     
-    const valeur = document.querySelector("#valeur").innerText  ;
-    let valeurpars = parseInt(valeur) ;
-    let quantiter_pars =parseInt(quantiter) ;
+        valeur = document.querySelector("#valeur").innerText  ;
+        quantiter = document.querySelector("#quantiter").value ;
+
+    valeurpars = parseInt(valeur) ;
+    quantiter_pars =parseInt(quantiter) ;
+    console.log(quantiter) ;
     if (valeurpars < id_product_int ){
         valeurpars += 1 ;
-        console.log(valeurpars) ;
-        quantiter_pars += 1;
-        document.querySelector("#quantiter").innerText =quantiter_pars ;
+        // console.log(valeurpars) ;
+        quantiter_pars =quantiter_pars + 1 ;
+        document.querySelector("#quantiter").value = quantiter_pars ;
         document.querySelector("#valeur").innerText = valeurpars ;
+        console.log(quantiter) ;
+       
+       
     }
 
     
 })
 
 moins.addEventListener("click",function(){
-    const valeur = document.querySelector("#valeur").innerText  ;
-    
+    valeur = document.querySelector("#valeur").innerText  ;
+    quantiter = document.querySelector("#quantiter").value ;
     let valeurpars = parseInt(valeur) ;
+    quantiter_pars =parseInt(quantiter)
     if (valeurpars >= 1){
         valeurpars -= 1 ;
+        
         console.log(valeurpars) ;
-        document.querySelector("#valeur").innerText = valeurpars
+        quantiter_pars =quantiter_pars - 1 ;
+        document.querySelector("#valeur").innerText = valeurpars ;
+        document.querySelector("#quantiter").value = quantiter_pars ;
     }
 
     

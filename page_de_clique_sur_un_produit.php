@@ -134,7 +134,7 @@ include("entete.php") ?>
                 </div>
                 <div class="w-46 h-14 py-2 px-3  ml-4 mr-4 flex justify-center border-gray-500  items-center border rounded-2xl  hover:bg-gray-700 hover:text-white">
                     <button>Add to cart</button>
-                    <input type="text" name="quantiter_produit" id="quantiter" value="1">
+                    <input type="hidden" name="quantiter_produit" id="quantiter" value="1">
                     <input type="hidden" name="ajout_produit" value=<?php echo $produit_select["Id"] ; ?>>
                 </div>
             </form>

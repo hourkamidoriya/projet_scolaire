@@ -1,11 +1,12 @@
 <?php
 session_start();
 include("connexion.php") ;
-if(isset($_POST["ajout_produit"])){
+if(isset($_POST["ajout_produit"]) && isset($_POST["quantiter_produit"])){
     // recherche du produit pour le mettre dans le cart  pouridentifier le produit j'ai besion de son identi
     // et de slidentifiant de l'utilisateur puis je vais recuperer la quatiter 
     $id_produit = $_POST["ajout_produit"] ;
     $id_de_l_utilisateur =$_SESSION["utilisateur"] ;
+    $quantiter_product =$_POST["quantiter_produit"] ;
 
 
     $requette_afficher_produit_cart ="SELECT * FROM `panier_produits` WHERE `utilisateur_panier`= $id_de_l_utilisateur AND `produit_id`= $id_produit" ;
@@ -18,9 +19,11 @@ if(isset($_POST["ajout_produit"])){
         echo "<pre>" ;
         echo "il y'a  de des produit" ;
         // la on fais une requette pour modifier le produit
-        $requette_insert_dans_le_cart = "UPDATE `panier_produits` SET `quantiteter`=  WHERE `utilisateur_panier` = $id_de_l_utilisateur AND `produit_id` = $id_produit"  ;
+        $requette_insert_dans_le_cart = "UPDATE `panier_produits` SET `quantiter`= $quantiter_product  WHERE `utilisateur_panier` = $id_de_l_utilisateur AND `produit_id` = $id_produit"  ;
         $requette_insert_dans_le_cart_exe =$con->query($requette_insert_dans_le_cart) ;
-        
+        echo " <script> alert('vous avez modifier un nouveau produit') ;</script> " ;
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
 
 
 
@@ -31,11 +34,16 @@ if(isset($_POST["ajout_produit"])){
         echo "<pre>" ;
         var_dump($le_poduit_en_question) ;
         echo "<pre>" ;    
-         echo "il y'a pas de des produit" ;  
+        echo "il y'a pas de des produit" ;  
          // la on fais une requette pour modifier le produit
-         $requette_insert_dans_le_cart = " INSERT INTO `panier_produits` (`utilisateur_panier`, `produit_id`, `quantiter`) VALUES ('$id_de_l_utilisateur', '$id_produit', '1') " ;
-         $requette_insert_dans_le_cart_exe =$con->query($requette_insert_dans_le_cart) ;
-         header("location:index.php") ;
+        $requette_insert_dans_le_cart = " INSERT INTO `panier_produits` (`utilisateur_panier`, `produit_id`, `quantiter`) VALUES ('$id_de_l_utilisateur', '$id_produit', '$quantiter_product') " ;
+        $requette_insert_dans_le_cart_exe =$con->query($requette_insert_dans_le_cart) ;
+
+        echo " <script> alert('vous avez ajouter un nouveau produit')</script> ;" ;
+
+
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
     }
 
 
