@@ -14,25 +14,25 @@ id_product_int = parseInt(id_product) ;
 console.log(id_product_int) ;
 plus.addEventListener("click",function(){
     
-    const valeur = document.querySelector("#valeur").innerText  ;
+    const valeur = document.querySelector(".valeur").innerText  ;
     let valeurpars = parseInt(valeur) ;
     if (valeurpars < id_product_int ){
         valeurpars += 1 ;
         console.log(valeurpars) ;
-        document.querySelector("#valeur").innerText = valeurpars
+        document.querySelector(".valeur").innerText = valeurpars
     }
 
     
 })
 
 moins.addEventListener("click",function(){
-    const valeur = document.querySelector("#valeur").innerText  ;
+    const valeur = document.querySelector(".valeur").innerText  ;
     
     let valeurpars = parseInt(valeur) ;
     if (valeurpars >= 1){
         valeurpars -= 1 ;
         console.log(valeurpars) ;
-        document.querySelector("#valeur").innerText = valeurpars
+        document.querySelector(".valeur").innerText = valeurpars
     }
 
     
