@@ -129,12 +129,12 @@ include("entete.php") ?>
             <form action="ajouter_produit.php" class="flex" method="POST">
                 <div class="w-32 h-14 py-2 px-3 ml-4 mr-4 flex justify-between border-gray-500  items-center border rounded-2xl ">
                     <button type="button" class="text-2xl  cursor-pointer" id="moins">-</button>
-                    <p class="valeur">1</p>
+                    <p id="valeur">1</p>
                     <button type="button" class=" text-2xl  cursor-pointer" id="plus" >+</button>
                 </div>
                 <div class="w-46 h-14 py-2 px-3  ml-4 mr-4 flex justify-center border-gray-500  items-center border rounded-2xl  hover:bg-gray-700 hover:text-white">
                     <button>Add to cart</button>
-                    <input type="hidden" name="quantiter_produit" class="valeur" value="1">
+                    <input type="text" name="quantiter_produit" id="quantiter" value="1">
                     <input type="hidden" name="ajout_produit" value=<?php echo $produit_select["Id"] ; ?>>
                 </div>
             </form>
