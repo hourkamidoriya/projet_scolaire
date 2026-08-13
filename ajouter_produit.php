@@ -14,36 +14,24 @@ if(isset($_POST["ajout_produit"]) && isset($_POST["quantiter_produit"])){
     $le_poduit_en_question = $requette_afficher_produit_cart_exe->fetchAll() ;
     // si le produit existe deja 
     if (!empty($le_poduit_en_question)){
-        echo "<pre>" ;
-        var_dump($le_poduit_en_question) ;
-        echo "<pre>" ;
-        echo "il y'a  de des produit" ;
         // la on fais une requette pour modifier le produit
         $requette_insert_dans_le_cart = "UPDATE `panier_produits` SET `quantiter`= $quantiter_product  WHERE `utilisateur_panier` = $id_de_l_utilisateur AND `produit_id` = $id_produit"  ;
         $requette_insert_dans_le_cart_exe =$con->query($requette_insert_dans_le_cart) ;
-        echo " <script> alert('vous avez modifier un nouveau produit') ;</script> " ;
-        header("Location: " . $_SERVER['HTTP_REFERER']);
-        exit();
+        echo " succes " ;
+        exit() ;
+        
 
 
 
 
 
 // le produi n'existe pas encore 
-    }else{
-        echo "<pre>" ;
-        var_dump($le_poduit_en_question) ;
-        echo "<pre>" ;    
-        echo "il y'a pas de des produit" ;  
+    }else{ 
          // la on fais une requette pour modifier le produit
         $requette_insert_dans_le_cart = " INSERT INTO `panier_produits` (`utilisateur_panier`, `produit_id`, `quantiter`) VALUES ('$id_de_l_utilisateur', '$id_produit', '$quantiter_product') " ;
         $requette_insert_dans_le_cart_exe =$con->query($requette_insert_dans_le_cart) ;
-
-        echo " <script> alert('vous avez ajouter un nouveau produit')</script> ;" ;
-
-
-        header("Location: " . $_SERVER['HTTP_REFERER']);
-        exit();
+        echo " succes " ;
+        exit() ;
     }
 
 

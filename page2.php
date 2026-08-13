@@ -2,42 +2,35 @@
 session_start();
 include("connexion.php");
 
-// fause requette pour conmpter
+// fausse requête pour compter
 $nb = 0;
-$categorie ="all_product";
+$categorie = "all_product";
 
-// la fausse requtte pour compter le nombre de produit par categori
+// la fausse requête pour compter le nombre de produit par catégorie
+if (isset($_POST['categorie'])) {
 
-if(isset($_POST['categorie'])){
     $categorie = $_POST["categorie"];
 
-    if($categorie=="meuble"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 1" ;
-    }elseif($categorie=="jeux"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 2" ;
-    }elseif($categorie=="consol"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 3" ;
-    }elseif($categorie=="electronic"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 5" ;
-    }elseif($categorie=="alimentation"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 4" ;
-    }else{
-        $requette = "SELECT * FROM produit";
-    }
-}else{
+    if ($categorie == "meuble") {
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = 1";
+    } elseif ($categorie == "jeux") {
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = 2";
+    } elseif ($categorie == "consol") {
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = 3";
+    } elseif ($categorie == "electronic") {
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = 5";
+    } elseif ($categorie == "alimentation") {
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = 4";
+    } else {
         $requette = "SELECT * FROM produit";
     }
 
-
-
-
-
+} else {
+    $requette = "SELECT * FROM produit";
+}
 
 $exe = $con->query($requette);
 $list_produit = $exe->fetchAll();
-
-
-
 
 foreach ($list_produit as $produit) {
     $produit["Titre"];
@@ -45,10 +38,10 @@ foreach ($list_produit as $produit) {
 }
 
 
-// je verifi si la il y'a un POST page
-if (isset($_POST["page"]) && !empty($_POST["page"])) {
+// je vérifie si il y'a un GET page
+if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
-    $page_actuelle = $_POST["page"];
+    $page_actuelle = (int)$_GET["page"];
 
 } else {
 
@@ -57,232 +50,594 @@ if (isset($_POST["page"]) && !empty($_POST["page"])) {
 }
 
 
-// je determinie le nombre d'lement par page
+// je détermine le nombre d'éléments par page
 $nb_by_page = 20;
 
 
-// je calcule le nombre de page
+// je calcule le nombre de pages
 $nb_page = ceil($nb / $nb_by_page);
 
 
-
-// je cherche se que je vais mettre dans la limite de ma requettte
+// je cherche ce que je vais mettre dans LIMIT
 $premier = ($page_actuelle * $nb_by_page) - $nb_by_page;
 
 
-$categorie ="all_product";
+$categorie = "all_product";
 
-// la vrais requette maintenant avec les limite
-if(isset($_POST['categorie'])){
+// la vraie requête maintenant avec les limites
+if (isset($_POST['categorie'])) {
+
     $categorie = $_POST["categorie"];
-    if ($categorie == "jeux"){
-$requette = "SELECT * FROM `produit` WHERE Id_categori = 2 LIMIT " . $premier . "," . $nb_by_page ;  
- }
-// else {
-//     $requette = "SELECT * FROM produit LIMIT " . $premier . "," . $nb_by_page;
-// }
- elseif($categorie =="electronic") {
-    $requette = "SELECT * FROM `produit` WHERE Id_categori = 3 LIMIT " . $premier . "," . $nb_by_page;  
+
+    if ($categorie == "jeux") {
+
+        $requette = "SELECT * FROM `produit` 
+                     WHERE Id_categori = 2 
+                     LIMIT " . $premier . "," . $nb_by_page;
+
+    } elseif ($categorie == "electronic") {
+
+        $requette = "SELECT * FROM `produit` 
+                     WHERE Id_categori = 3 
+                     LIMIT " . $premier . "," . $nb_by_page;
+
+    } elseif ($categorie == "all_product") {
+
+        $requette = "SELECT * FROM `produit` 
+                     LIMIT " . $premier . "," . $nb_by_page;
+
+    }
+
+} else {
+
+    $requette = "SELECT * FROM `produit` 
+                 LIMIT " . $premier . "," . $nb_by_page;
 }
- elseif($categorie =="all_product") {
-    $requette = "SELECT * FROM `produit` LIMIT " . $premier . "," . $nb_by_page;  
-}
-
-}else{
-    $requette = "SELECT * FROM `produit` LIMIT " . $premier . "," . $nb_by_page;
-}
-
-
-
-
-
-
-
 
 
 $exe = $con->query($requette);
 $list_produit = $exe->fetchAll();
 
-foreach ($list_produit as $produit) {
 
-    $produit["Titre"];
-    $produit["Id_categori"];
-    $produit["Description"];
-    $produit["Prix"];
-    $produit["Image"];
-}
+// requête pour afficher les éléments de manière décroissante
+$requette_des_nouveauter = "SELECT * FROM `produit` 
+                            ORDER BY `produit`.`Id` DESC 
+                            LIMIT 3";
 
-
-// la requette pour afficher les element de manier decroissant
-$requette_des_nouveauter = "SELECT * FROM `produit` ORDER BY `produit`.`Id` DESC LIMIT 3";
 $exe2 = $con->query($requette_des_nouveauter);
 $list_new_produit = $exe2->fetchAll();
 
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-$banner="yes" ;
-$title="Shop"?>
-<?php if(isset($_SESSION["utilisateur"])=="bb"){ ?>
-    <?php include("entete.php")?>
-    <!-- <input type="file" value="cliquer et choisiser une image"> -->
+$banner = "yes";
+$title = "Shop";
+?>
 
-    <div class="w-full h-14 bg-pink-200 grid grid-cols-2 items-center ">
-        <div class="flex my-auto  h-14 justify-center">
-            <div class="flex items-center gap-3">
-                <div class=" p-2  flex ">
-                    <form action="" method="POST" class="flex">
-                        <select name="categorie" id="">
-                            <option value="all_product"> tous nos produit </option>
-                            <option value="electronic">electronic</option>
-                            <option value="meuble">Meuble</option>
-                            <option value="jeux">jeux</option>
-                            <option value="alimentation">nourriture</option>
+<?php if (isset($_SESSION["utilisateur"]) == "bb") { ?>
+
+    <?php include("entete.php") ?>
+
+
+    <!-- BARRE DE FILTRE -->
+    <div class="w-full bg-pink-200 py-3 px-3 sm:px-5">
+
+        <div class="max-w-7xl mx-auto 
+                    flex flex-col lg:flex-row 
+                    items-center justify-between 
+                    gap-4">
+
+            <!-- GAUCHE -->
+            <div class="flex flex-col sm:flex-row 
+                        items-center justify-center 
+                        gap-3 w-full lg:w-auto">
+
+                <!-- FILTRE -->
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+
+                    <form action="" method="POST" 
+                          class="flex items-center gap-2 w-full sm:w-auto">
+
+                        <select 
+                            name="categorie"
+                            class="border border-gray-400 
+                                   rounded-lg px-3 py-2 
+                                   bg-white outline-none 
+                                   w-full sm:w-auto"
+                        >
+
+                            <option value="all_product">
+                                Tous nos produits
+                            </option>
+
+                            <option value="electronic">
+                                Électronique
+                            </option>
+
+                            <option value="meuble">
+                                Meuble
+                            </option>
+
+                            <option value="jeux">
+                                Jeux
+                            </option>
+
+                            <option value="alimentation">
+                                Nourriture
+                            </option>
+
                         </select>
-                        <button class="cursor-pointer"> <img src="asset/system-uicons_filtering.png" alt="" class="w-8 h-8  hover:w-9  "> </button>
+
+
+                        <button 
+                            type="submit"
+                            class="cursor-pointer 
+                                   bg-white rounded-lg 
+                                   p-2 hover:bg-gray-100"
+                        >
+
+                            <img 
+                                src="asset/system-uicons_filtering.png"
+                                alt="Filtrer"
+                                class="w-6 h-6 sm:w-7 sm:h-7"
+                            >
+
+                        </button>
+
                     </form>
-                    
+
                 </div>
-                <p>filter</p>
-                <img src="asset/Vector (6).png" alt="" class="w-5 h-5">
-                <img src="asset/Vector (7).png " alt=""  class="w-5 h-5 m-5">
+
+
+                <p class="hidden sm:block">
+                    Filter
+                </p>
+
+
+                <img 
+                    src="asset/Vector (6).png"
+                    alt=""
+                    class="w-5 h-5 hidden sm:block"
+                >
+
+
+                <img 
+                    src="asset/Vector (7).png"
+                    alt=""
+                    class="w-5 h-5 hidden sm:block"
+                >
+
+
+                <!-- NOMBRE DE PRODUITS -->
+                <p class="text-sm sm:text-base 
+                          text-center whitespace-nowrap">
+
+                    Showing
+
+                    <?php echo $page_actuelle . "/" . $nb_page; ?>
+
+                    -
+
+                    <?php echo $nb_by_page; ?>
+
+                    of
+
+                    <?php echo $nb; ?>
+
+                    résultats
+
+                </p>
+
             </div>
-            <div class=" text-center my-auto  items-center">
-                <p>whowing <?php echo "$page_actuelle "."/"."$nb_page "."-"." $nb_by_page"." of ". " $nb "." resultat " ?></p>
+
+
+            <!-- DROITE -->
+            <div class="flex flex-col sm:flex-row 
+                        items-center justify-center 
+                        gap-3 w-full lg:w-auto">
+
+                <form action="" class="flex items-center gap-2">
+
+                    <label>
+                        Show
+                    </label>
+
+                    <input 
+                        type="text"
+                        placeholder="16"
+                        class="bg-amber-100 
+                               border rounded-xl 
+                               p-2 w-20 sm:w-24"
+                    >
+
+                </form>
+
+
+                <form action="" class="flex items-center gap-2">
+
+                    <label>
+                        Sort
+                    </label>
+
+                    <input 
+                        type="text"
+                        placeholder="Default"
+                        class="bg-amber-100 
+                               border rounded-xl 
+                               p-2 w-24 sm:w-28"
+                    >
+
+                </form>
+
             </div>
+
         </div>
-        
-        <div class="flex mx-auto items-center h-12">
-            <form action="">
-                <label for="">Show</label>
-                <input type="text" placeholder="16" class="bg-amber-100 border rounded-xl m-5 p-2">
-            </form>
-            <form action="">
-                <label for="">Short</label>
-                <input type="text" placeholder="Defaul" class="bg-amber-100 border rounded-xl m-5 p-2">
-            </form>
-        </div>
-     </div>
-    <div>
 
-        
-        <div class="container mx-auto p-12 py-2">
-                <h1 class="text-center mb-3.5 font-bold text-3xl">tous nos articles</h1>
-                   <div class="grid grid-cols-4 gap-6">
+    </div>
 
-                        <?php foreach ($list_produit as $produit) { ?>
-                            
-                            <div class="shadow-2xl shadow-black duration-500 hover:-translate-y-3.5  bg-gray-200 relative produits  ">
-                                    <img
-                                        src="<?php echo $produit['Image']; ?>"
-                                        alt=""
-                                        class="w-full h-62  mb-4 object-">
-                                <div class="px-4 pb-10 overflow-y-auto h-30">
-                                    <p class="font-bold text-center">
-                                        <?php echo $produit['Titre']; ?>
-                                    </p>
 
-                                    <p class="">
-                                        <?php echo $produit['Description']; ?>
-                                    </p>
 
-                                    <p class="text-center">
-                                        <?php echo $produit['Prix']; ?> FCFA
-                                    </p>
-                                </div>
-                                    
-                                    
-                                    <div class="hidden  contenaire_product text-center   absolute w-full h-full top-0 mx-auto right-0">
-                                        <form action="page_de_clique_sur_un_produit.php" method="POST">
-                                            <button class="py-3 p-5 absolute  font-bold  z-10 mt-34 -ml-24 w-8/12 bg-white text-amber-600 " id="add_cart">Add to cart</button>
-                                            <input type="text" value="<?php echo $produit['Id']; ?>" class="hidden" name="affiche_produit">                             
-                                        </form>    
-                                    
-                                       
-                                        <form action="">
-                                            <div class="absolute px-4  items-center  flex w-full top-52"> 
-                                                <button  class=" w-full flex text-white z-10 hover:cursor-pointer"><img src="asset/fond-noir (2).png" alt="ss" class="w-3  mr-3"> <span class="underline">Share</span> </button> 
-                                                <button class=" w-full flex text-white z-10 ml-10 hover:cursor-pointer"><img src="asset/fond-noir (1).png" alt="ss" class="w-3  mr-3 ">  <span class="underline">Share</span> </button> 
-                                            </div>
-                                        </form>
-                                        <div class="h-full w-full bg-black opacity-50 absolute  z-0"></div>
-                                    </div>
-                                    
-                                
-                               
-                            </div>
-                            
-                        <?php } ?>
+    <!-- CONTENU -->
+    <div class="container mx-auto 
+                px-3 sm:px-6 lg:px-10 
+                py-4">
+
+
+        <h1 class="text-center 
+                   mb-5 
+                   font-bold 
+                   text-2xl sm:text-3xl">
+
+            Tous nos articles
+
+        </h1>
+
+
+        <!-- GRILLE PRODUITS -->
+        <div class="grid 
+                    grid-cols-1 
+                    sm:grid-cols-2 
+                    md:grid-cols-3 
+                    lg:grid-cols-4 
+                    gap-5 sm:gap-6">
+
+
+            <?php foreach ($list_produit as $produit) { ?>
+
+
+                <!-- PRODUIT -->
+                <div class="
+                    shadow-2xl
+                    shadow-black/30
+                    duration-500
+                    hover:-translate-y-2
+                    bg-gray-200
+                    relative
+                    produits
+                    overflow-hidden
+                    rounded-lg
+                ">
+
+
+                    <!-- IMAGE -->
+                    <div class="w-full 
+                                aspect-square 
+                                overflow-hidden 
+                                bg-white">
+
+                        <img
+                            src="<?php echo $produit['Image']; ?>"
+                            alt="<?php echo $produit['Titre']; ?>"
+                            class="
+                                w-full
+                                h-full
+                                object-contain
+                                transition
+                                duration-500
+                            "
+                        >
 
                     </div>
 
 
-                <div class="flex justify-center gap-3.5 my-6 "> <?php for ($i=1 ;$i<=$nb_page ;$i++) {?>
-                    <?php if($i == $page_actuelle){ ?>
-                        <p class="py-3  px-7 rounded-xl shadow-2xl bg-gray-400 " > <?php echo $i?></p>
-                    <?php } else { ?>
-                        <a href="page2.php?page= <?php echo $i ; ?>"><p class="py-3  px-7 rounded-xl shadow-2xl bg-amber-400 " > <?php echo $i?></p></a>
-                    <?php } ?>
-                  <?php }?>
+                    <!-- INFORMATIONS -->
+                    <div class="
+                        px-4
+                        py-4
+                        min-h-[150px]
+                    ">
+
+
+                        <p class="
+                            font-bold
+                            text-center
+                            text-base
+                            sm:text-lg
+                            line-clamp-2
+                        ">
+
+                            <?php echo $produit['Titre']; ?>
+
+                        </p>
+
+
+                        <p class="
+                            text-sm
+                            sm:text-base
+                            mt-2
+                            line-clamp-3
+                            text-gray-700
+                        ">
+
+                            <?php echo $produit['Description']; ?>
+
+                        </p>
+
+
+                        <p class="
+                            text-center
+                            font-bold
+                            text-base
+                            sm:text-lg
+                            mt-3
+                        ">
+
+                            <?php echo $produit['Prix']; ?> FCFA
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- OVERLAY -->
+                    <div class="
+                        hidden
+                        contenaire_product
+                        text-center
+                        absolute
+                        inset-0
+                        w-full
+                        h-full
+                    ">
+
+
+                        <!-- CONTENU -->
+                        <div class="
+                            relative
+                            z-10
+                            h-full
+                            w-full
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            px-4
+                        ">
+
+
+                            <!-- ADD TO CART -->
+                            <form 
+                                action="page_de_clique_sur_un_produit.php"
+                                method="POST"
+                                class="w-full flex justify-center"
+                            >
+
+                                <input 
+                                    type="hidden"
+                                    value="<?php echo $produit['Id']; ?>"
+                                    name="affiche_produit"
+                                >
+
+
+                                <button 
+                                    type="submit"
+                                    class="
+                                        py-3
+                                        px-5
+                                        font-bold
+                                        bg-white
+                                        text-amber-600
+                                        rounded-lg
+                                        w-full
+                                        max-w-xs
+                                        hover:bg-amber-600
+                                        hover:text-white
+                                        transition
+                                        cursor-pointer
+                                    "
+                                >
+
+                                    Add to cart
+
+                                </button>
+
+                            </form>
+
+
+
+                            <!-- SHARE -->
+                            <div class="
+                                flex
+                                flex-col
+                                sm:flex-row
+                                gap-4
+                                mt-6
+                                w-full
+                                max-w-xs
+                            ">
+
+
+                                <button 
+                                    type="button"
+                                    class="
+                                        w-full
+                                        flex
+                                        justify-center
+                                        items-center
+                                        text-white
+                                        hover:underline
+                                        cursor-pointer
+                                    "
+                                >
+
+                                    <img 
+                                        src="asset/fond-noir (2).png"
+                                        alt=""
+                                        class="w-4 h-4 mr-2"
+                                    >
+
+                                    <span>
+                                        Share
+                                    </span>
+
+                                </button>
+
+
+
+                                <button 
+                                    type="button"
+                                    class="
+                                        w-full
+                                        flex
+                                        justify-center
+                                        items-center
+                                        text-white
+                                        hover:underline
+                                        cursor-pointer
+                                    "
+                                >
+
+                                    <img 
+                                        src="asset/fond-noir (1).png"
+                                        alt=""
+                                        class="w-4 h-4 mr-2"
+                                    >
+
+                                    <span>
+                                        Share
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FOND NOIR -->
+                        <div class="
+                            h-full
+                            w-full
+                            bg-black
+                            opacity-50
+                            absolute
+                            inset-0
+                            z-0
+                        "></div>
+
+
+                    </div>
+
+
                 </div>
 
 
+            <?php } ?>
 
+
+        </div>
+
+
+
+        <!-- PAGINATION -->
+        <div class="
+            flex
+            justify-start
+            sm:justify-center
+            gap-2
+            my-8
+            overflow-x-auto
+            px-2
+            pb-2
+        ">
+
+
+            <?php for ($i = 1; $i <= $nb_page; $i++) { ?>
+
+
+                <?php if ($i == $page_actuelle) { ?>
+
+
+                    <span class="
+                        flex-shrink-0
+                        py-2
+                        px-4
+                        sm:px-6
+                        rounded-xl
+                        shadow-2xl
+                        bg-gray-400
+                        font-bold
+                    ">
+
+                        <?php echo $i ?>
+
+                    </span>
+
+
+                <?php } else { ?>
+
+
+                    <a 
+                        href="page2.php?page=<?php echo $i; ?>"
+                        class="flex-shrink-0"
+                    >
+
+                        <p class="
+                            py-2
+                            px-4
+                            sm:px-6
+                            rounded-xl
+                            shadow-2xl
+                            bg-amber-400
+                            hover:bg-amber-500
+                        ">
+
+                            <?php echo $i ?>
+
+                        </p>
+
+                    </a>
+
+
+                <?php } ?>
+
+
+            <?php } ?>
+
+
+        </div>
 
 
     </div>
 
 
 
+    <?php include("pied_de_page.php") ?>
+
+    <script src="scrip.js"></script>
 
 
+<?php } else { ?>
 
+    <?php
+    header("location:connexion_user.php");
+    exit;
+    ?>
 
+<?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include("pied_de_page.php")?>
-<script src="scrip.js"></script>
-
-<?php }else{ ?> 
-    
- <?php   header("location:connexion_user.php")  ;?>
-     
-<?php } ;?>
 
 </body>
 </html>

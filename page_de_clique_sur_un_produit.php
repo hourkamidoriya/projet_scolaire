@@ -103,10 +103,9 @@ include("entete.php") ?>
                 <div class=" bg-pink-200 w-20 h-20 flex justify-center text-center items-center rounded-xl "> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
                 <div class=" bg-pink-200 flex justify-center text-center items-center rounded-xl w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
             </div>
-            <div class="w-11/12 bg-pink-200   h-98 flex justify-center rounded-2xl">
-                <div class="h-11/12  w-11/12 bg-pink-600 rounded-t-2xl p-3 " >
-                    
-                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-11/12 rounded-t-2xl bg-pink-200 object-cover">
+            <div class="w-12/12 bg-pink-400   h-98 flex justify-center rounded-2xl">
+                <div class="h-12/12  w-12/12 rounded-t-2xl  " >                   
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 rounded-t-2xl bg-pink-200 object-cover">
                 </div>
             </div>
         </div>
@@ -123,7 +122,7 @@ include("entete.php") ?>
             <p class="text-gray-500 text-2xl"> custommer</p>
           </div>
           <div class="w-full h-30 py-2 px-3">
-            <p> <?php echo $produit_select["Description"] ; ?> CFA </p> 
+            <p> <?php echo $produit_select["Description"] ; ?></p> 
           </div>
           <div class="flex mb-2.5 justify-between mt-6">
             <form action="ajouter_produit.php" class="flex" method="POST">

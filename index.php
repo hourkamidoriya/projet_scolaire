@@ -16,9 +16,9 @@ foreach ($list_produit as $produit) {
 
 
 // je verifi si la il y'a un POST page
-if (isset($_POST["page"]) && !empty($_POST["page"])) {
+if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
-    $page_actuelle = $_POST["page"];
+    $page_actuelle = $_GET["page"];
 
 } else {
 

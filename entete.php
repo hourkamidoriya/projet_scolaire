@@ -164,8 +164,7 @@ foreach ($produits_panier as $produit_panier){
           <input type="hidden" name="product_del" value="<?php echo $un_produit['Id']?>">
           <button class="flex w-7 h-7 cursor-pointer">
               <img src="asset/crois.png" alt="" class="w-6 h-6 hover:w-7 hover:h-7" title="suprimer du panier">
-          </button>
-          
+          </button>  
         </form>
 
         </div>
@@ -188,10 +187,10 @@ foreach ($produits_panier as $produit_panier){
 </div>
 
  <div class="mt-3.5 flex w-full">
-  <form action="" class="w-6/12 ">
+  <form action="cart.php" class="w-6/12 ">
     <button class="text-white z-10  hover:cursor-pointer bg-amber-500 border rounded-xl p-3  w-11/12">Cart</button>
   </form>  
-  <form action="" class="w-6/12">
+  <form action="page7.php" class="w-6/12">
     <button class="text-white z-10  hover:cursor-pointer bg-amber-500 border rounded-xl p-3  w-11/12 ">Chekout</button>
   </form>
 </div>
@@ -315,7 +314,7 @@ foreach ($produits_panier as $produit_panier){
               <a
                 href=""
                 class="text-1xl duration-500 hover:text-blue-400 hover:text-2xl"
-                >Contact</a
+                ><?php  echo $title?></a
               >
             </li>
           </div>

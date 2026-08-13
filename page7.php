@@ -164,7 +164,7 @@ if(isset($_SESSION["utilisateur"])=="bb"){ ?>
   $requette_produits_exe = $con->query($requette_produits) ;
   $tous_les_produit = $requette_produits_exe->fetchAll() ;
   foreach ($tous_les_produit as $un_produit){   ?>
-                <p> <?php echo ($un_produit["Prix"] * $produit_panier['quantiter']) ?></p>
+    <p> <?php echo ($un_produit["Prix"] * $produit_panier['quantiter']) ?> Fcfa</p>
 <?php }?>
 
 <?php }?>
@@ -172,7 +172,7 @@ if(isset($_SESSION["utilisateur"])=="bb"){ ?>
 
                 
 
-                <p class="text-2xl font-bold text-yellow-700"><?php echo  $prix ?></p>
+              <p class="text-2xl font-bold text-yellow-700"><?php echo  $prix ?> Fcfa</p>
               </div>
             </div>
 
