@@ -131,8 +131,6 @@ foreach ($produits_panier as $produit_panier){
 <div class="w-3/12 p-5  z-10 justify-center bg-white  h-full text-center items-center" id="visuel_panier">
     <h2 class="text-2xl  font-bold">Shopping Cart</h2>
     <div class="mt-10 bg-gray-200 h-0.5 w-full"></div>
-    
-
 <div class=" overflow-y-auto h-111" style="height: 444px ;">
 <?php
 $prix=0 ;
@@ -147,28 +145,27 @@ foreach ($produits_panier as $produit_panier){
   $tous_les_produit = $requette_produits_exe->fetchAll() ;
   foreach ($tous_les_produit as $un_produit){   ?>
 <form action="page_de_clique_sur_un_produit.php" method="POST">
-  <div class="w-full mt-5 bg-white h-32 flex border rounded-xl items-center text-center cursor-pointer hover:-translate-y-3.5 duration-700  " >
+  <div class="w-11/12 mt-5 bg-white h-32 flex border rounded-xl items-center text-center cursor-pointer hover:-translate-y-3.5 duration-700" >
       <div class=" bg-white h-11/12 w-4/10 flex ml-2  ">
-        <button class="w-full h-full rounded-2xl bg-pink-300">
-          <img src=" <?php echo $un_produit['Image']?> " alt="" class=" object-fill h-full  w-full rounded-2xl bg-pink-300">
+        <button class="w-full h-full rounded-2xl">
+          <img src=" <?php echo $un_produit['Image']?> " alt="" class=" object-contain  rounded-2xl bg-pink-300">
         </button>
         <input type="text" value="<?php echo $un_produit['Id']; ?>" class="hidden" name="affiche_produit">  
       </div>                           
 </form> 
       
-  <div class=" bg-white h-11/12 w-6/12  ml-2  justify-center  ">
+  <div class=" bg-white h-11/12 w-6/12 ">
         <div class="mt-3.5"> <h2 class="font-bold"><?php echo $un_produit['Titre']?></h2> </div>
         <div class="mt-3.5 flex justify-between mx-2.5" > <h2 class="">   <?php echo $produit_panier['quantiter']?> X <?php echo $un_produit['Prix']?></h2>
+        </div>
+      </div>
 
         <form action="delete.php" class="flex" method="POST" >
           <input type="hidden" name="product_del" value="<?php echo $un_produit['Id']?>">
           <button class="flex w-7 h-7 cursor-pointer">
-              <img src="asset/crois.png" alt="" class="w-6 h-6 hover:w-7 hover:h-7" title="suprimer du panier">
+              <img src="asset/crois.png" alt="" class="w-6 h-6 hover:w-7 hover:h-7 object-contain" title="suprimer du panier">
           </button>  
         </form>
-
-        </div>
-      </div>
   </div> 
   <?php $prix=(int)$prix+((int)$un_produit['Prix'] * (int)$produit_panier['quantiter']) ;?>
 
