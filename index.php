@@ -112,9 +112,7 @@ $banner="none" ;
 include ("entete.php")
 ?> 
 <?php if(isset($_SESSION["utilisateur"])=="bb"){ ?> 
-<body>
-
-    <div>
+  <div>
         
 
     </div>
@@ -125,7 +123,7 @@ include ("entete.php")
         <img
           src="asset/baner.png"
           alt=""
-          class="object-cover absolute -z-10 bg-amber-400"
+          class="object-cover absolute -z-10 "
         />
       <header class="justify-center flex h-screen  ">
 

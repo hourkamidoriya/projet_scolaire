@@ -56,7 +56,7 @@ foreach ($produits_panier as $produit_panier){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $title ?></title>
   <link rel="stylesheet" href="css/output.css">
-  <link rel="stylesheet" href="css/output.css">
+  <link rel="icon" href="asset/logo.png">
 </head>
 <body>
 <?php if(!isset($_SESSION["utilisateur"])){?> 
@@ -148,7 +148,7 @@ foreach ($produits_panier as $produit_panier){
   <div class="w-11/12 mt-5 bg-white h-32 flex border rounded-xl items-center text-center cursor-pointer hover:-translate-y-3.5 duration-700" >
       <div class=" bg-white h-11/12 w-4/10 flex ml-2  ">
         <button class="w-full h-full rounded-2xl">
-          <img src=" <?php echo $un_produit['Image']?> " alt="" class=" object-contain  rounded-2xl bg-pink-300">
+          <img src=" <?php echo $un_produit['Image']?> " alt="" class=" object-contain h-full w-full  rounded-2xl ">
         </button>
         <input type="text" value="<?php echo $un_produit['Id']; ?>" class="hidden" name="affiche_produit">  
       </div>                           
@@ -243,7 +243,7 @@ foreach ($produits_panier as $produit_panier){
 
 <nav class="bg-white items-center flex gap-3.5 mb-4 pt-2 justify-between">
       <div class="flex items-center">
-        <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10" />
+        <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10 object-contain" />
         <h1 class="font-bold text-3xl">Funiro</h1>
       </div>
 
@@ -265,8 +265,13 @@ foreach ($produits_panier as $produit_panier){
       </div>
 
       <div class="flex gap-10 items-center ">
-        <img src="asset/Vector (4).png" alt="" class="w-6 cursor-pointer" id="moi" />
-
+        <?php if(isset($_SESSION["utilisateur"])){?>
+          <div class="w-10 h-10 bg-gray-400 rounded-3xl flex items-center text-center justify-center">
+            <img src="asset/Sample_User_Icon.png" alt="" class="w-8 h-8  cursor-pointer object-contain" id="moi" />
+          </div>
+        <?php }else{?>
+          <img src="asset/Vector (4).png" alt="" class="w-6 cursor-pointer object-contain" id="moi" />
+        <?php }?>
         <div class="flex gap-1.5 relative w-45 items-center justify-end">
             <form action="page_de_recherche.php" method="POST" class=" text-center  flex justify-end">
                 <input type="text" class="bg-gray-300 required w-full h-10 p-1 rounded-xl  pr-10" name="search" >
@@ -278,7 +283,7 @@ foreach ($produits_panier as $produit_panier){
         </div>
         
         <img src="asset/Vector (2).png" alt="" class="w-5" />
-        <img src="asset/Vector (5).png" id="hh" alt="" class="w-5 mr-10 cursor-pointer "/>
+        <img src="asset/Vector (5).png" id="hh" alt="" class="w-5 mr-10 cursor-pointer object-contain "/>
       </div>
   </nav>
 <?php if($banner=="yes"){ ?>  
@@ -290,7 +295,7 @@ foreach ($produits_panier as $produit_panier){
       </div>
 
       <div class="absolute justify-center text-center">
-        <img src="asset/logo.png" alt="" class="w-14 mx-auto" />
+        <img src="asset/logo.png" alt="" class="w-14 mx-auto object-contain" />
         <ol>
           <div>
             <li>
@@ -305,7 +310,7 @@ foreach ($produits_panier as $produit_panier){
                 class="text-1xl duration-500  hover:text-blue-400 hover:text-2xl"
                 >Hom </a
               >
-             <img src="asset/dashicons_arrow-down-alt2.png" alt="" class="w-4 mt-1" > 
+             <img src="asset/dashicons_arrow-down-alt2.png" alt="" class="w-4 mt-1 object-contain" > 
             </li>
             <li>
               <a

@@ -99,13 +99,34 @@ include("entete.php") ?>
     <div class="grid grid-cols-2 container">
         <div class=" flex">
             <div class="w-4/12  pl-10 grid grid-cols-1 mx-auto">
-                <div class=" bg-pink-200 w-20 h-20 flex justify-center text-center items-center rounded-xl "> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
-                <div class=" bg-pink-200 w-20 h-20 flex justify-center text-center items-center rounded-xl "> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
-                <div class=" bg-pink-200 flex justify-center text-center items-center rounded-xl w-20 h-20"> <img src="<?php echo $produit_select['Image']?>" alt="" class="w-10/12 h-10/12 object-cover bg-pink-200"></div>
+                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
+                    <form action="page_de_clique_sur_un_produit2.php" method="post" class="w-full h-full object-contain"> 
+                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
+                        <button class="w-full h-full object-contain" >
+                            <img src="<?php echo $produit_select['image1']?>" alt="" class="w-full h-full object-contain">
+                        </button>
+                    </form>
+                </div>
+                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
+                    <form action="page_de_clique_sur_un_produit3.php" method="post" class="w-full h-full object-contain"> 
+                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
+                        <button class="w-full h-full object-contain" >
+                            <img src="<?php echo $produit_select['image2']?>" alt="" class="w-full h-full object-contain">
+                        </button>
+                    </form>
+                </div>
+                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
+                    <form action="page_de_clique_sur_un_produit4.php" method="post" class="w-full h-full object-contain"> 
+                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
+                        <button class="w-full h-full object-contain" >
+                            <img src="<?php echo $produit_select['image3']?>" alt="" class="w-full h-full object-contain">
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="w-12/12 bg-pink-400   h-98 flex justify-center rounded-2xl">
+            <div class="w-12/12    h-98 flex justify-center rounded-2xl">
                 <div class="h-12/12  w-12/12 rounded-t-2xl  " >                   
-                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 rounded-t-2xl bg-pink-200 object-cover">
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain">
                 </div>
             </div>
         </div>
