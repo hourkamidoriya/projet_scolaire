@@ -58,31 +58,31 @@ moins.addEventListener("click",function(){
 }) ;
 
 
-const formulaire = document.querySelector('form[action="ajouter_produit.php"]');
+// const formulaire = document.querySelector('form[action="ajouter_produit.php"]');
 
-formulaire.addEventListener("submit", function(event) {
+// formulaire.addEventListener("submit", function(event) {
 
-    // Empêche le rechargement de la page
-    event.preventDefault();
+//     // Empêche le rechargement de la page
+//     event.preventDefault();
 
-    // Récupère les données du formulaire
-    const donnees = new FormData(formulaire);
+//     // Récupère les données du formulaire
+//     const donnees = new FormData(formulaire);
 
-    // Envoie les données à PHP
-    fetch("ajouter_produit.php", {
-        method: "POST",
-        body: donnees
-    })
-    .then(response => response.text())
-    .then(resultat => {
-        console.log(resultat);
+//     // Envoie les données à PHP
+//     fetch("ajouter_produit.php", {
+//         method: "POST",
+//         body: donnees
+//     })
+//     .then(response => response.text())
+//     .then(resultat => {
+//         console.log(resultat);
 
-        alert("Produit ajouté au panier !");
+//         alert("Produit ajouté au panier !");
 
-    })
-    .catch(erreur => {
-        console.error(erreur);
-        alert("Une erreur est survenue");
-    });
+//     })
+//     .catch(erreur => {
+//         console.error(erreur);
+//         alert("Une erreur est survenue");
+//     });
 
-});
+// });

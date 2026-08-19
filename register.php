@@ -1,196 +1,128 @@
-<?php  
-$banner="yes" ;
-$title="enregistrement" ;
-include("entete.php") ;
 
-?>
 
 
-<div>
-  <div class="w-40 rounded-2xl bg-red-700 connexion_echouer hidden "><p>la creation de votre a echouer verifier le mot de passe </p></div>
-  <div class="w-40 rounded-2xl bg-green-700 connexion_reussi  hidden" ><p>la creation de votre a echouer verifier le mot de passe </p></div>
-</div>
-<div  class="flex  justify-center text-center items-center">
-    <div class="">
-        <form action="register_traite.php" method="post" name="inciption" class=" border border-pink-300 rounded-4xl p-5 mb-8">
-            <div class="mt-2">
-                <label for="" class="">Votre Nom</label>
-                <input type="text" name="nom" id="" placeholder="abc"  required class="w-full h-11 border border-gray-400 mt-4 rounded-xl px-5">
-            </div>
-            <div class="mt-2">
-                <label for="" class="">adresse emal</label>
-                <input type="email" name="email" id="" placeholder="abc@gamil.cm" class="w-full h-11 border border-gray-400 mt-4 rounded-xl px-5">
-            </div>
-            <div class="mt-2" > 
-                <label for="" class="">Password</label>
-                <input type="password" name="pass" id="pass" placeholder="entrer votre mot de passe " required class="w-full h-11 border border-gray-400 mt-4 rounded-xl px-5">
-            </div>
-        
-            <div class="mt-2" > 
-                <label for="" class="">Password</label>
-                <input type="password" name="verif_pass" id="vpass"  placeholder="Verifier votre mot de passe " required class="w-full h-11 border border-gray-400 mt-4 rounded-xl px-5">
-            </div>
 
-            <div class="mt-2" > 
-                <label for="" class="">N° de telephone</label>
-                <input type="tel" name="num_tel" id="" placeholder="entrer votre numero de tel " required class="w-full h-11 border border-gray-400 mt-4 rounded-xl px-5">
-            </div>
 
-            <div class="mt-2 justify-center text-center">
-              <button onclick="inscrire()" id="register" class="w-1/2 justify-center text-center rounded-3xl text-white font-bold text-xl h-14 p-3 border bg-amber-500  ">S'inscrire</button>
-            </div>
-
-
-        </form>
-    </div>
-</div>
-<script src="js/script_inscription.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="h-32 flex my-auto bg-pink-200 mx-auto justify-center text-center  gap-20">
-        <div class="w1/4 flex   justify-center my-auto">
-            <div class="w-16   mr-3  ">
-                <img src="asset/Group.png" alt="" class="w-10/12 duration-500 hover:w-11/12">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold">High Quality</h3>
-                <p>crafted from top materials</p>
-            </div>
-        </div>
-        <div class="w1/4 flex  justify-center my-auto">
-            <div class="w-16 h-16 mr-3">
-                <img src="asset/Vector (8).png" alt="" class="w-10/12 duration-500 hover:w-11/12">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold">Warranty Protection</h3>
-                <p>Over 2 years</p>
-            </div>
-        </div>
-        <div class="w1/4 flex justify-center my-auto">
-            <div class="w-16 h-16 mr-3">
-                <img src="asset/Vector (9).png" alt="" class="w-10/12  duration-500 hover:w-11/12">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold">Free Shipping</h3>
-                <p>Order over 150 $</p>
-            </div>
-        </div>
-        <div class="w1/4 flex justify-center my-auto">
-            <div class="w-16 h-16 mr-3">
-                <img src="asset/Vector (10).png" alt="" class="w-10/12 duration-500 hover:w-11/12">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold">24 / 7 Support</h3>
-                <p>Dedicated support</p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-</div>
-    <div class="w-full flex px-20 py-6 bg-white shadow-2xl">
-    <div>
-        <div style="width: 360px; text-align: left;">
-            <div style="display: flex;">
-                <div style="margin-right: 10px;">
-                    <img src="Logo.png" alt="">
-                </div>
-                <p class=" font-bold text-4xl">FUNIRO</p>
-            </div>
-            <div class="mt-9">
-                <p>400 University Drive Suite 200 Coral Gables, <br> FL 33134 USA</p>
-            </div>
-          
-        </div>
-
-
-        
-    </div>
-
-    <div style="display: flex; margin-left: 50px; margin-top: 30px;">
-        <div class="ml-9">
-            <a href="" style="text-decoration: none;"><h3 style="font-weight: bold; margin-bottom: 20px;">Link</h3></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Hom</p></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">About</p></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Contact</p></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Shop</p></a>
-        </div>
-
-        <div  class="ml-14">
-            <a href="" style="text-decoration: none;"><h3 style=" font-weight: bold; margin-bottom: 20px;">Help</h3></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Payement option</p></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">retune</p></a>
-            <a href="" style="text-decoration: none;"><p style=" font-style: 10px;">Pricaty policie</p></a>
-            
-        </div>
-
-        <div class="ml-20 gap-2">
-            <a href="" style="text-decoration: none;"><h3 style="font-weight: bold; margin-bottom: 20px;">Newsletter</h3></a>
-            <div class="flex gap-4">
-                <input type="email" name="" id="" placeholder="entrer vote email" class="border-b  border-b-black outline-none bg-transparent">
-
-                <input type="submit" name="" id="" value="subcrire"  class="border-b  border-b-black outline-none bg-transparent w-32 hover:cursor-pointer hover:bg-pink-400 hover:rounded-2xl rounded-b-2xl">
-            </div>
- 
-        </div>
-
-
-    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="anime.css">
+    <link rel="icon" href="asset/logo.png">
+</head>
+<body>
     
+<div class="w-full h-screen bg-gray-400 flex justify-center text-center items-center py-3">
+    <div class="w-11/12 h-full  shadow-2xs rounded-2xl justify-center flex text-center items-center ">
+        <div class="w-full h-11/12 justify-center flex text-center items-center  rounded-2xl">
+            <div class="w-6/12 h-full  rounded-l-2xl bg-amber-300 relative justify-center flex text-center items-center">
+                <div class="w-full h-full justify-center text-center items-center flex absolute z-0">
+                    <img src="asset/monlo.png" alt="" class="logo object-contain">
+                </div>
+                <div class="z-10 mt-10 ">
+                    <h1 class="text-4xl text-white font-bold">avez vous deja  de compte sur cette platforme ? </h1>
+                    <div class="py-3 px-5 mt-10">
+                        <h1 class="text-2xl text-white font-bold mt-10 ">connexter et vous et gérer vos commande et produit ici</h1>
+                    </div>
+                    <form action="connexion_user.php" class="mt-10">
+                        <button class="  font-bold mt-10  z-10  border border-black px-10 py-3.5 rounded-2xl text-amber-600 bg-white hover:bg-black hover:text-white ">connexion</button>
+                    </form>
+                    
+                </div>
+            </div>
+
+
+            <div class="w-6/12 h-full rounded-r-2xl  bg-white flex justify-center text-center items-center ">
+                <div class=" w-10/12 justify-end ">
+                    <div class="w-full flex justify-end">
+                        <h1 class="text-4xl text-black font-bold">Créé votre compte d'utilisateur ICI  </h1>
+                    </div>
+                <form action="register_traite.php" method="post" name="inciption" class="rounded-4xl ">
+                    <div class="">
+                        <div class="w-full  flex mt-3" >
+                            <label for="" class="">Votre Nom</label>
+                        </div>
+                        <input type="text" name="nom" id="" placeholder="abc"  required class="w-full h-11 border border-gray-400  rounded-xl px-5">
+                    </div>
+
+                    <div class="">
+                        <div class="w-full  flex mt-3" >
+                            <label for="" class="">adresse emal</label>
+                        </div>
+                        <input type="email" name="email" id="" placeholder="abc@gamil.cm" class="w-full h-11 border border-gray-400  rounded-xl ">
+                    </div>
+                    <div class="" > 
+                        <div class="w-full  flex mt-3" >
+                            <label for="" class="">Password</label>
+                        </div>
+                        <input type="password" name="pass" id="pass" placeholder="entrer votre mot de passe " required class="w-full h-11 border border-gray-400  rounded-xl ">
+                    </div>
+                
+                    <div class="" > 
+                        <div class="w-full  flex mt-3" >
+
+                            <label for="" class="">Password</label>
+                        </div>
+                        <input type="password" name="verif_pass" id="vpass"  placeholder="Verifier votre mot de passe " required class="w-full h-11 border border-gray-400  rounded-xl ">
+                    </div>
+
+                    <div class="" > 
+                        <div class="w-full  flex mt-3" >
+                            <label for="" class="">N° de telephone</label>
+                        </div>
+                        
+                        <input type="tel" name="num_tel" id="" placeholder="entrer votre numero de tel " required class="w-full h-11 border border-gray-400  rounded-xl ">
+                    </div>
+
+                    <div class=" justify-center text-center mt-3 ">
+                    <button onclick="inscrire()" id="register" class="w-full justify-center text-center rounded-3xl text-white font-bold text-xl h-14 border bg-amber-300  ">S'inscrire</button>
+                    </div>
+                        <div class="mt-2">
+                            <p>ave vous deja un compte ? <a href="connexion.php" class="text-blue-500">Se connecter</a></p>
+                        </div> 
+
+                </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
-
-
-
-
-
-
 
 </body>
 </html>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

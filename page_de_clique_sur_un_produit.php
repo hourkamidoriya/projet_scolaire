@@ -127,12 +127,14 @@ include("entete.php") ?>
                 <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
                     <img src="<?php echo $produit_select["image3"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
                 </div>
-                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                <div class="w-full h-full justify-between flex text-center items-center  absolute ">
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="precedent"> <img src="asset/prev.png" alt="" class="w-12 h-12 cursor-pointer"></button>
                     </div>
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="suivant"> <img src="asset/next.png" alt="" class="w-12 h-12 cursor-pointer"></button>
                     </div>  
                 </div>
             </div>
@@ -150,12 +152,14 @@ include("entete.php") ?>
                     <img src="<?php echo $produit_select["image2"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute  object-carosel">
                 </div>
 
-                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                <div class="w-full h-full justify-between flex text-center items-center  absolute ">
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="precedent"> <img src="asset/prev.png" alt="" class="w-12 h-12"></button>
                     </div>
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="suivant"> <img src="asset/next.png" alt="" class="w-12 h-12"></button>
                     </div>  
                 </div>
             </div>
@@ -169,15 +173,16 @@ include("entete.php") ?>
                 <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
                     <img src="<?php echo $produit_select["image1"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
                 </div>
-                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                <div class="w-full h-full justify-between flex text-center items-center  absolute ">
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="precedent"> <img src="asset/prev.png" alt="" class="w-12 h-12"></button>
                     </div>
-                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
-                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+
+                    <div class=" rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute w-12 h-12" id="suivant"> <img src="asset/next.png" alt="" class="w-12 h-12"></button>
                     </div>  
                 </div>
-            </div>
             <?php } ?>
 
             <?php if( $count_image==1){?>
@@ -289,8 +294,8 @@ include("entete.php") ?>
                     </div>  
     <div class="hidden  contenaire_product text-center   absolute w-full h-full top-0 mx-auto right-0">
 
-        <form action="" method="POST">
-            <button class="py-3 p-5 absolute  font-bold  z-10 mt-34 -ml-24 w-8/12 bg-white text-amber-600 " id="add_cart">Add to cart</button>
+        <form action="ajouter_produit.php" method="POST">
+            <button class="py-3 p-5 absolute  font-bold  z-10 mt-34 -ml-24 w-8/12 bg-white text-amber-600 " id="">Add to cart</button>
             <input type="text" value="<?php echo $simil_produit['Id']; ?>" class="hidden" name="affiche_produit">                             
         </form>    
                                     

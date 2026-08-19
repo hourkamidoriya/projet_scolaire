@@ -30,7 +30,7 @@ foreach ($produits_panier as $produit_panier){
 
 }
 
-
+$nb_produit_panier =0 ;
 ?>
 
 
@@ -56,7 +56,7 @@ foreach ($produits_panier as $produit_panier){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $title ?></title>
   <link rel="stylesheet" href="css/output.css">
-  <link rel="icon" href="asset/logo.png">
+  <link rel="icon" href="asset/ChatGPT Image Aug 19, 2026, 09_32_59 AM.png">
 </head>
 <body>
 <?php if(!isset($_SESSION["utilisateur"])){?> 
@@ -162,6 +162,8 @@ foreach ($produits_panier as $produit_panier){
 
         <form action="delete.php" class="flex" method="POST" >
           <input type="hidden" name="product_del" value="<?php echo $un_produit['Id']?>">
+          <?php $nb_produit_panier+= 1?>
+          
           <button class="flex w-7 h-7 cursor-pointer">
               <img src="asset/crois.png" alt="" class="w-6 h-6 hover:w-7 hover:h-7 object-contain" title="suprimer du panier">
           </button>  
@@ -243,7 +245,7 @@ foreach ($produits_panier as $produit_panier){
 
 <nav class="bg-white items-center flex gap-3.5 mb-4 pt-2 justify-between">
       <div class="flex items-center">
-        <img src="asset/logo.png" alt="mon LOGO" class="w-10 ml-10 object-contain" />
+        <img src="asset/ChatGPT Image Aug 19, 2026, 09_32_59 AM.png" alt="mon LOGO" class="w-15 ml-10 object-contain" />
         <h1 class="font-bold text-3xl">Funiro</h1>
       </div>
 
@@ -264,7 +266,7 @@ foreach ($produits_panier as $produit_panier){
         </ol>
       </div>
 
-      <div class="flex gap-10 items-center ">
+      <div class="flex gap-10 items-center relative ">
         <?php if(isset($_SESSION["utilisateur"])){?>
           <div class="w-10 h-10 bg-gray-400 rounded-3xl flex items-center text-center justify-center">
             <img src="asset/Sample_User_Icon.png" alt="" class="w-8 h-8  cursor-pointer object-contain" id="moi" />
@@ -274,16 +276,20 @@ foreach ($produits_panier as $produit_panier){
         <?php }?>
         <div class="flex gap-1.5 relative w-45 items-center justify-end">
             <form action="page_de_recherche.php" method="POST" class=" text-center  flex justify-end">
-                <input type="text" class="bg-gray-300 required w-full h-10 p-1 rounded-xl  pr-10" name="search" >
-                <div class="absolute mt-3">
+                <input type="text" class="bg-gray-300 required w-full h-10 p-1 rounded-xl  pr-10" placeholder="rechercer un produit" name="search" >
+                <div class="absolute mt-2.5">
                     <button type="submit" class=" hover: cursor-pointer"><img src="asset/Vector (3).png" alt="" class="w-5 z-10   mr-3 " /> </button>
                 </div>
                 
             </form>
         </div>
-        
+        <?php if($nb_produit_panier>0){ ?>
+        <div class=" bg-red-500  w-5 h-5 rounded-2xl absolute justify-center text-center flex items-center left-96 bottom-4">
+          <?php echo $nb_produit_panier ?>
+        </div>
+        <?php } ?>
         <img src="asset/Vector (2).png" alt="" class="w-5" />
-        <img src="asset/Vector (5).png" id="hh" alt="" class="w-5 mr-10 cursor-pointer object-contain "/>
+        <img src="asset/cart1.png" id="hh" alt="" class="w-8 mr-10 cursor-pointer object-contain "/>
       </div>
   </nav>
 <?php if($banner=="yes"){ ?>  
@@ -295,7 +301,7 @@ foreach ($produits_panier as $produit_panier){
       </div>
 
       <div class="absolute justify-center text-center">
-        <img src="asset/logo.png" alt="" class="w-14 mx-auto object-contain" />
+        <img src="asset/ChatGPT Image Aug 19, 2026, 09_32_59 AM.png" alt="" class="w-26 mx-auto object-contain" />
         <ol>
           <div>
             <li>
