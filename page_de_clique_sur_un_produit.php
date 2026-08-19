@@ -18,11 +18,26 @@ else{
 $exe=$con->query($requette);
 $mon_produit=$exe->fetchAll();
 
-
+$count_image=0 ;
 foreach($mon_produit as $produit_select){
     // echo $produit_select["Id_categori"] ;
     $id_produit = $produit_select["Id_categori"] ;
     $produit_select["Titre"] ;
+    if(!empty($produit_select["Image"])){
+        $count_image+=1 ;
+    }
+
+    if(!empty($produit_select["image1"])){
+        $count_image+=1 ;
+    }
+
+    if(!empty($produit_select["image2"])){
+        $count_image+=1 ;
+    }
+
+    if(!empty($produit_select["image3"])){
+        $count_image+=1 ;
+    }
 }
 // ici je vais chercher comment afficher les prosuit de la mm categori
 $requette2="SELECT * FROM `produit` WHERE `Id_categori`=".$id_produit . " LIMIT "."0".","."4" ;
@@ -98,37 +113,80 @@ include("entete.php") ?>
 <div class=" w-full justify-center items-center  mx-auto flex">
     <div class="grid grid-cols-2 container">
         <div class=" flex">
-            <div class="w-4/12  pl-10 grid grid-cols-1 mx-auto">
-                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
-                    <form action="page_de_clique_sur_un_produit2.php" method="post" class="w-full h-full object-contain"> 
-                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
-                        <button class="w-full h-full object-contain" >
-                            <img src="<?php echo $produit_select['image1']?>" alt="" class="w-full h-full object-contain">
-                        </button>
-                    </form>
+            <?php if( $count_image==4){?>
+            <div class="w-12/12    h-98 flex justify-center rounded-2xl relative ">
+                <div class="h-12/12  w-full rounded-t-2xl absolute " >                   
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain absolute object-carosel">
                 </div>
-                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
-                    <form action="page_de_clique_sur_un_produit3.php" method="post" class="w-full h-full object-contain"> 
-                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
-                        <button class="w-full h-full object-contain" >
-                            <img src="<?php echo $produit_select['image2']?>" alt="" class="w-full h-full object-contain">
-                        </button>
-                    </form>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image1"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
                 </div>
-                <div class=" border border-pink-300 w-20 h-20 flex justify-center text-center items-center rounded-xl ">
-                    <form action="page_de_clique_sur_un_produit4.php" method="post" class="w-full h-full object-contain"> 
-                        <input type="hidden" name="affiche_produit" value="<?php echo $produit_cliked ?>">
-                        <button class="w-full h-full object-contain" >
-                            <img src="<?php echo $produit_select['image3']?>" alt="" class="w-full h-full object-contain">
-                        </button>
-                    </form>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image2"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute  object-carosel">
+                </div>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image3"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
+                </div>
+                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                    </div>
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+                    </div>  
                 </div>
             </div>
-            <div class="w-12/12    h-98 flex justify-center rounded-2xl">
-                <div class="h-12/12  w-12/12 rounded-t-2xl  " >                   
-                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain">
+            <?php } ?>
+
+            <?php if( $count_image==3){?>
+            <div class="w-12/12    h-98 flex justify-center rounded-2xl relative ">
+                <div class="h-12/12  w-full rounded-t-2xl absolute " >                   
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain absolute object-carosel">
+                </div>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image1"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
+                </div>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image2"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute  object-carosel">
+                </div>
+
+                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                    </div>
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+                    </div>  
                 </div>
             </div>
+            <?php } ?>
+
+            <?php if( $count_image==2){?>
+            <div class="w-12/12    h-98 flex justify-center rounded-2xl relative ">
+                <div class="h-12/12  w-full rounded-t-2xl absolute " >                   
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain absolute object-carosel">
+                </div>
+                <div class="h-12/12  w-12/12 rounded-t-2xl absolute  " >                   
+                    <img src="<?php echo $produit_select["image1"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain hidden absolute object-carosel ">
+                </div>
+                <div class="w-full h-full justify-between flex text-center items-center bg-blue-600 absolute ">
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="precedent"><</button>
+                    </div>
+                    <div class="w-10 h-10 bg-gray-500 rounded-2xl justify-center flex items-center text-center">
+                        <button type="button" class=" font-bold text-4xl text-blue-600 absolute" id="suivant">></button>
+                    </div>  
+                </div>
+            </div>
+            <?php } ?>
+
+            <?php if( $count_image==1){?>
+            <div class="w-12/12    h-98 flex justify-center rounded-2xl relative ">
+                <div class="h-12/12  w-full rounded-t-2xl absolute " >                   
+                    <img src="<?php echo $produit_select["Image"] ; ?>" alt="" class="h-12/12 w-full rounded-t-2xl object-contain absolute object-carosel">
+                </div>
+            </div>
+            <?php } ?>
         </div>
         <div class=" ml-10">
 
@@ -304,8 +362,7 @@ include("entete.php") ?>
     
 </div>
 
-
-
+<script src="carosel.js"></script>
 <script src="script_add_or_subs_to_cart.js"></script>
 <script src="scrip.js"></script>
     

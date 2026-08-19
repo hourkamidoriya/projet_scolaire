@@ -1,4 +1,5 @@
 <?php
+include("connexion.php") ;
 $title="ajourter un produit";
 $banner="yes" ;
 include("entete.php");
@@ -10,7 +11,13 @@ if(isset($_POST["Id_user"])){
     echo $image4["tmp_name"] ;
 }
 
+$requette_categori="SELECT * FROM `categorie`" ;
+$requette_categori_exe=$con->query($requette_categori) ;
+$list_categorie=$requette_categori_exe->fetchAll();
 
+foreach($list_categorie as $categori){
+    $categori["nom"];
+}
 
 
 ?>
@@ -59,13 +66,9 @@ if(isset($_POST["Id_user"])){
             <div class="mt-2" > 
                 <label for="" class=" font-bold text-blue-600">choisiser la categorie</label>
                 <select name="categori" id="" class="w-full h-11 border-gray-300 border rounded-xl outline-none">
-                    <option value="meuble">Meuble </option>
-                    <option value="jeux">Jeux </option>
-                    <option value="console">Console </option>
-                    <option value="aliment">Alimentation</option>
-                    <option value="electronique">Elctronique</option>
-                    <option value="beaute">Beauter</option>
-                    <option value="automobile">Automobile</option>
+                  <?php foreach($list_categorie as $categori){?>
+                    <option value="<?php echo $categori["Id"] ?>"><?php echo $categori["nom"] ?></option>
+                <?php }?>
                 </select>
             </div>
             <div class="mt-2" > 

@@ -16,9 +16,7 @@
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-700: oklch(55.4% 0.135 66.442);
-    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-700: oklch(52.7% 0.154 150.069);
-    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
@@ -382,9 +380,6 @@
   .-ml-24 {
     margin-left: calc(var(--spacing) * -24);
   }
-  .ml-1 {
-    margin-left: var(--spacing);
-  }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
@@ -433,11 +428,32 @@
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
   }
+  .h-1 {
+    height: var(--spacing);
+  }
+  .h-1\/12 {
+    height: calc(1 / 12 * 100%);
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-2\/12 {
+    height: calc(2 / 12 * 100%);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-3\/12 {
+    height: calc(3 / 12 * 100%);
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
+  }
+  .h-6\/12 {
+    height: calc(6 / 12 * 100%);
   }
   .h-7 {
     height: calc(var(--spacing) * 7);
@@ -453,6 +469,9 @@
   }
   .h-10 {
     height: calc(var(--spacing) * 10);
+  }
+  .h-10\/12 {
+    height: calc(10 / 12 * 100%);
   }
   .h-11 {
     height: calc(var(--spacing) * 11);
@@ -748,6 +767,10 @@
     border-top-left-radius: var(--radius-2xl);
     border-top-right-radius: var(--radius-2xl);
   }
+  .rounded-l-2xl {
+    border-top-left-radius: var(--radius-2xl);
+    border-bottom-left-radius: var(--radius-2xl);
+  }
   .rounded-b-2xl {
     border-bottom-right-radius: var(--radius-2xl);
     border-bottom-left-radius: var(--radius-2xl);
@@ -763,9 +786,6 @@
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-  }
-  .border-amber-300 {
-    border-color: var(--color-amber-300);
   }
   .border-black {
     border-color: var(--color-black);
@@ -814,6 +834,9 @@
   }
   .bg-blue-400 {
     background-color: var(--color-blue-400);
+  }
+  .bg-blue-600 {
+    background-color: var(--color-blue-600);
   }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
@@ -1041,9 +1064,6 @@
   .text-gray-600 {
     color: var(--color-gray-600);
   }
-  .text-green-500 {
-    color: var(--color-green-500);
-  }
   .text-white {
     color: var(--color-white);
   }
@@ -1063,6 +1083,10 @@
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .shadow-2xs {
+    --tw-shadow: 0 1px var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-black {
     --tw-shadow-color: #000;
     @supports (color: color-mix(in lab, red, red)) {
@@ -1078,10 +1102,6 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
-  }
-  .outline-0 {
-    outline-style: var(--tw-outline-style);
-    outline-width: 0px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -1101,81 +1121,27 @@
   .file\:mr-4::file-selector-button {
     margin-right: calc(var(--spacing) * 4);
   }
-  .file\:ml-1::file-selector-button {
-    margin-left: var(--spacing);
-  }
-  .file\:h-11::file-selector-button {
-    height: calc(var(--spacing) * 11);
-  }
   .file\:cursor-pointer::file-selector-button {
     cursor: pointer;
-  }
-  .file\:rounded::file-selector-button {
-    border-radius: 0.25rem;
-  }
-  .file\:rounded-2xl::file-selector-button {
-    border-radius: var(--radius-2xl);
   }
   .file\:rounded-lg::file-selector-button {
     border-radius: var(--radius-lg);
   }
-  .file\:rounded-xl::file-selector-button {
-    border-radius: var(--radius-xl);
-  }
-  .file\:border::file-selector-button {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-  .file\:border-0::file-selector-button {
-    border-style: var(--tw-border-style);
-    border-width: 0px;
-  }
-  .file\:border-2::file-selector-button {
-    border-style: var(--tw-border-style);
-    border-width: 2px;
-  }
   .file\:border-amber-300::file-selector-button {
     border-color: var(--color-amber-300);
-  }
-  .file\:border-white::file-selector-button {
-    border-color: var(--color-white);
-  }
-  .file\:bg-amber-300::file-selector-button {
-    background-color: var(--color-amber-300);
-  }
-  .file\:bg-amber-600::file-selector-button {
-    background-color: var(--color-amber-600);
-  }
-  .file\:bg-blue-400::file-selector-button {
-    background-color: var(--color-blue-400);
   }
   .file\:bg-blue-600::file-selector-button {
     background-color: var(--color-blue-600);
   }
-  .file\:px-1::file-selector-button {
-    padding-inline: var(--spacing);
-  }
-  .file\:px-3::file-selector-button {
-    padding-inline: calc(var(--spacing) * 3);
-  }
   .file\:px-4::file-selector-button {
     padding-inline: calc(var(--spacing) * 4);
-  }
-  .file\:py-1\.5::file-selector-button {
-    padding-block: calc(var(--spacing) * 1.5);
   }
   .file\:py-2::file-selector-button {
     padding-block: calc(var(--spacing) * 2);
   }
-  .file\:py-3::file-selector-button {
-    padding-block: calc(var(--spacing) * 3);
-  }
   .file\:font-bold::file-selector-button {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .file\:text-amber-300::file-selector-button {
-    color: var(--color-amber-300);
   }
   .file\:text-white::file-selector-button {
     color: var(--color-white);
@@ -1237,15 +1203,6 @@
     }
     .file\:hover\:bg-amber-300::file-selector-button:hover {
       background-color: var(--color-amber-300);
-    }
-    .file\:hover\:bg-blue-300::file-selector-button:hover {
-      background-color: var(--color-blue-300);
-    }
-    .file\:hover\:bg-blue-400::file-selector-button:hover {
-      background-color: var(--color-blue-400);
-    }
-    .file\:hover\:bg-blue-500::file-selector-button:hover {
-      background-color: var(--color-blue-500);
     }
     .file\:hover\:text-white::file-selector-button:hover {
       color: var(--color-white);

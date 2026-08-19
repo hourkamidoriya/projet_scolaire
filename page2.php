@@ -9,28 +9,16 @@ $categorie ="all_product";
 // la fausse requtte pour compter le nombre de produit par categori
 
 if(isset($_POST['categorie'])){
-    $categorie = $_POST["categorie"];
+    $categorie = (int)$_POST["categorie"];
 
-    if($categorie=="meuble"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 1" ;
-    }elseif($categorie=="jeux"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 2" ;
-    }elseif($categorie=="consol"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 3" ;
-    }elseif($categorie=="electronic"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 5" ;
-    }elseif($categorie=="alimentation"){
-        $requette="SELECT * FROM `produit` WHERE Id_categori = 4" ;
+    if($categorie > 0){
+        $requette="SELECT * FROM `produit` WHERE Id_categori = ". $categorie ;
     }else{
         $requette = "SELECT * FROM produit";
     }
 }else{
         $requette = "SELECT * FROM produit";
     }
-
-
-
-
 
 
 $exe = $con->query($requette);
@@ -70,23 +58,16 @@ $nb_page = ceil($nb / $nb_by_page);
 $premier = ($page_actuelle * $nb_by_page) - $nb_by_page;
 
 
-$categorie ="all_product";
+
 
 // la vrais requette maintenant avec les limite
 if(isset($_POST['categorie'])){
-    $categorie = $_POST["categorie"];
-    if ($categorie == "jeux"){
-$requette = "SELECT * FROM `produit` WHERE Id_categori = 2 LIMIT " . $premier . "," . $nb_by_page ;  
- }
-// else {
-//     $requette = "SELECT * FROM produit LIMIT " . $premier . "," . $nb_by_page;
-// }
- elseif($categorie =="electronic") {
-    $requette = "SELECT * FROM `produit` WHERE Id_categori = 3 LIMIT " . $premier . "," . $nb_by_page;  
-}
- elseif($categorie =="all_product") {
-    $requette = "SELECT * FROM `produit` LIMIT " . $premier . "," . $nb_by_page;  
-}
+    $categorie = (int)$_POST["categorie"];
+    if ($categorie>0){
+        $requette = "SELECT * FROM `produit` WHERE Id_categori = $categorie LIMIT " . $premier . "," . $nb_by_page ;  
+    }else {
+         $requette = "SELECT * FROM produit LIMIT " . $premier . "," . $nb_by_page;
+    }
 
 }else{
     $requette = "SELECT * FROM `produit` LIMIT " . $premier . "," . $nb_by_page;
@@ -118,6 +99,19 @@ $requette_des_nouveauter = "SELECT * FROM `produit` ORDER BY `produit`.`Id` DESC
 $exe2 = $con->query($requette_des_nouveauter);
 $list_new_produit = $exe2->fetchAll();
 
+
+
+//la requette pour la categori
+
+$requette_categori="SELECT * FROM `categorie`" ;
+$requette_categori_exe=$con->query($requette_categori) ;
+$list_categorie=$requette_categori_exe->fetchAll();
+
+foreach($list_categorie as $categori){
+    $categori["nom"];
+}
+
+
 ?>
 
 
@@ -146,11 +140,11 @@ $title="Shop"?>
                 <div class=" p-2  flex ">
                     <form action="" method="POST" class="flex ">
                         <select name="categorie" id="" class="flex border bg-white py-2 px-4 ml-2 border-gray-500 rounded-xl">
-                            <option value="all_product" class="ml-1 bg-pink-200"> tous nos produit </option>
-                            <option value="electronic">electronic</option>
-                            <option value="meuble">Meuble</option>
-                            <option value="jeux">jeux</option>
-                            <option value="alimentation">nourriture</option>
+                            <option value="0"> tous nos produit </option>
+                            <?php foreach($list_categorie as $categori){?>
+                                <option value="<?php echo $categori["Id"] ?>"> <?php echo $categori["nom"]?></option>
+                                
+                            <?php } ?>
                         </select>
                         <button class="cursor-pointer bg-white  hover:bg-gray-200 duration-500 rounded-xl ml-2"> <img src="asset/system-uicons_filtering.png" alt="" class="w-8 mx-2 "> </button>
                     </form>

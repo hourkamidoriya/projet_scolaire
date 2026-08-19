@@ -7,21 +7,7 @@ $prix_produit_post=$_POST["Prix"];
 $categori_produit_post=$_POST["categori"];
 $stok_produit_post=$_POST["stok"];
 // je verifier les valeur de categori
-if($categori_produit_post=="meuble"){
-    $categori_final=1 ;
-}elseif($categori_produit_post=="jeux"){
-    $categori_final=2 ;
-}elseif($categori_produit_post=="console"){
-    $categori_final=3 ;
-}elseif($categori_produit_post=="aliment"){
-    $categori_final=4 ;
-}elseif($categori_produit_post=="electronique"){
-    $categori_final=5 ;
-}elseif($categori_produit_post=="beaute"){
-    $categori_final=6 ;
-}elseif($categori_produit_post=="automobile"){
-    $categori_final=7 ;
-}
+$categori_final= (int)$categori_produit_post ;
 
 
 if(isset($_POST["sub"])){
